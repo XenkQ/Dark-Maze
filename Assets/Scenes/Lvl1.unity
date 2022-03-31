@@ -757,6 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662973084}
   - component: {fileID: 662973083}
+  - component: {fileID: 662973085}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -841,6 +842,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 87.674, y: 0, z: 0}
+--- !u!114 &662973085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662973082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &671813853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1360,7 @@ GameObject:
   - component: {fileID: 1023542426}
   - component: {fileID: 1023542425}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2515,8 +2536,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1729175553}
+  - component: {fileID: 1729175554}
   m_Layer: 0
-  m_Name: Map
+  m_Name: MapHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2538,6 +2560,19 @@ Transform:
   m_Father: {fileID: 564854972}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729175554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729175552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18f0103634caa940a546218c55595aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1023542423}
 --- !u!1001 &1735486343
 PrefabInstance:
   m_ObjectHideFlags: 0
