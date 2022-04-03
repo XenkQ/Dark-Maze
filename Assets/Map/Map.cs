@@ -6,7 +6,7 @@ public class Map : MonoBehaviour
 {
     [SerializeField] private GameObject map;
 
-    void Update()
+    private void Update()
     {
         if(Input.GetKeyDown(KeyCode.M))
         {
