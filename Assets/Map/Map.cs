@@ -11,6 +11,15 @@ public class Map : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M))
         {
             map.SetActive(!map.active);
+            //TODO: Make static;
+            if(map.active)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 }

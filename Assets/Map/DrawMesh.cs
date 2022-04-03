@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawMesh : MonoBehaviour {
-
+    //TODO: Make this working
     [SerializeField] private Camera drawCamera;
     private Mesh mesh;
     private Vector3 lastMousePosition;
@@ -101,7 +101,7 @@ public class DrawMesh : MonoBehaviour {
 
     private Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera)
     {
-        Vector3 worldPosition = worldCamera.ViewportToWorldPoint(screenPosition);
+        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
         return worldPosition;
     }
 }
