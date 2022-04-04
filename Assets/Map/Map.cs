@@ -14,10 +14,12 @@ public class Map : MonoBehaviour
             //TODO: Make static;
             if(map.active)
             {
+                Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
             }
             else
             {
+                Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
