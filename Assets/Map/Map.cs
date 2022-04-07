@@ -11,7 +11,7 @@ public class Map : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M))
         {
             map.SetActive(!map.active);
-            //TODO: Make static;
+            //TODO: Make layers map and drawing;
             if(map.active)
             {
                 Time.timeScale = 0;

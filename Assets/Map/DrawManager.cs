@@ -6,7 +6,10 @@ public class DrawManager : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Line _linePrefab;
-    public const float RESOLUTION = 0.1f;
+    
+    [SerializeField] private Vector3 _linesCentralPointLocalCoordinates;
+    //? new Vector3(-0.0309999995f,-1.22000003f,-1.97599995f);
+    public const float RESOLUTION = 0.01f;
     private Line _currentLine;
     [SerializeField] private LayerMask mapLayerMask;
 
@@ -19,33 +22,23 @@ public class DrawManager : MonoBehaviour
         {
             if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
             {
-                _currentLine = Instantiate(_linePrefab, hit.point, transform.rotation, this.transform);
+                _currentLine = Instantiate(_linePrefab, hit.point, Quaternion.identity, this.transform);
                 _currentLine.transform.localPosition = new Vector3(
-                    _currentLine.transform.localPosition.x,
-                    _currentLine.transform.localPosition.y + 0.3f,
-                    _currentLine.transform.localPosition.z
+                    _linesCentralPointLocalCoordinates.x,
+                    _linesCentralPointLocalCoordinates.y,
+                    _linesCentralPointLocalCoordinates.z
                 );
 
-                _currentLine.SetPositionOnZero();
+                //_currentLine.SetPositionOnZero();
             }
         }
 
-        //TODO: Make other points working through adding more vertex with mouse point
+        //TODO: make if pointer exit from map stop working
         if(Input.GetMouseButton(0))
         {
             if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
             {
-                // _currentLine.SetPosition(
-                //     new Vector3(
-                //         hit.point.x,
-                //         hit.point.y,
-                //         0
-                //     )
-                // );
-                // _currentLine.transform.rotation = hit.transform.rotation;
-                _currentLine.SetPosition(
-                    hit.point
-                );
+                _currentLine.SetPosition(hit.point);
             }
         }
     }

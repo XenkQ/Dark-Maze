@@ -1511,6 +1511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e764b0c3d4feb2d4abd2c8c08c5ca768, type: 3}
+--- !u!4 &1624595062 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1729175553, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
+  m_PrefabInstance: {fileID: 4479333209984011371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1654453714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,12 +2458,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147088971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.211, z: 1.947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1317498414}
-  m_RootOrder: 3
+  m_Father: {fileID: 1624595062}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2147088973
 MonoBehaviour:
@@ -2474,6 +2479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 270450649}
   _linePrefab: {fileID: 6186584233613667126, guid: d4cac255cef6ea848b2516a941aa2ebb, type: 3}
+  _linesCentralPointLocalCoordinates: {x: -0.031, y: -1.22, z: -1.976}
   mapLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -2978,7 +2984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1023542423, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1729175552, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_IsActive
