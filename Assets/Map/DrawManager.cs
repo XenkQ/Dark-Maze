@@ -23,6 +23,7 @@ public class DrawManager : MonoBehaviour
             if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
             {
                 _currentLine = Instantiate(_linePrefab, hit.point, Quaternion.identity, this.transform);
+                //BUG: if player change position this is not gonna working;
                 _currentLine.transform.localPosition = new Vector3(
                     _linesCentralPointLocalCoordinates.x,
                     _linesCentralPointLocalCoordinates.y,
