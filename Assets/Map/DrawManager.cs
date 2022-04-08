@@ -7,8 +7,9 @@ public class DrawManager : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Line _linePrefab;
     
-    [SerializeField] private Vector3 _linesCentralPointLocalCoordinates;
-    //? new Vector3(-0.0309999995f,-1.22000003f,-1.97599995f);
+    // [SerializeField] private Vector3 _linesCentralPointLocalCoordinates;
+    [SerializeField] private Transform maybeWork;
+    // //? new Vector3(-0.0309999995f,-1.22000003f,-1.97599995f);
     public const float RESOLUTION = 0.01f;
     private Line _currentLine;
     [SerializeField] private LayerMask mapLayerMask;
@@ -24,11 +25,17 @@ public class DrawManager : MonoBehaviour
             {
                 _currentLine = Instantiate(_linePrefab, hit.point, Quaternion.identity, this.transform);
                 //BUG: if player change position this is not gonna working;
-                _currentLine.transform.localPosition = new Vector3(
-                    _linesCentralPointLocalCoordinates.x,
-                    _linesCentralPointLocalCoordinates.y,
-                    _linesCentralPointLocalCoordinates.z
-                );
+                // _currentLine.transform.localPosition = new Vector3(
+                //     _linesCentralPointLocalCoordinates.x,
+                //     _linesCentralPointLocalCoordinates.y,
+                //     _linesCentralPointLocalCoordinates.z
+                // );
+
+                // _currentLine.transform.localPosition = new Vector3(
+                //     maybeWork.position.x,
+                //     maybeWork.position.y,
+                //     maybeWork.position.z
+                // );
 
                 //_currentLine.SetPositionOnZero();
             }
