@@ -22,6 +22,11 @@ public class Line : MonoBehaviour
         }
     }
 
+    public void RendererToLocalSpace()
+    {
+        _renderer.useWorldSpace = false;
+    }
+
     public void SetPosition(Vector3 pos)
     {
         if(!CanAppend(pos)) return;

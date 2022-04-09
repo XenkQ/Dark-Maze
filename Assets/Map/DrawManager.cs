@@ -6,10 +6,8 @@ public class DrawManager : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Line _linePrefab;
-    
+    [SerializeField] [Range(0.01f,0.9f)] private float _lineZOffset;
     // [SerializeField] private Vector3 _linesCentralPointLocalCoordinates;
-    [SerializeField] private Transform maybeWork;
-    // //? new Vector3(-0.0309999995f,-1.22000003f,-1.97599995f);
     public const float RESOLUTION = 0.01f;
     private Line _currentLine;
     [SerializeField] private LayerMask mapLayerMask;
@@ -23,6 +21,7 @@ public class DrawManager : MonoBehaviour
         {
             if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
             {
+                //Vector3 position = new Vector3(hit.point.x,hit.point.y,hit.point.z + _lineZOffset);
                 _currentLine = Instantiate(_linePrefab, hit.point, Quaternion.identity, this.transform);
                 //BUG: if player change position this is not gonna working;
                 // _currentLine.transform.localPosition = new Vector3(
@@ -46,8 +45,14 @@ public class DrawManager : MonoBehaviour
         {
             if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
             {
+                //Vector3 position = new Vector3(hit.point.x,hit.point.y,hit.point.z + _lineZOffset);
                 _currentLine.SetPosition(hit.point);
             }
         }
+
+        // if(Input.GetMouseButtonUp(0))
+        // {
+        //     _currentLine.RendererToLocalSpace();
+        // }
     }
 }

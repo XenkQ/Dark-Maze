@@ -222,11 +222,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4479333209567142168, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
   m_PrefabInstance: {fileID: 4479333209984011371}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &375223613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4479333209271154340, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-  m_PrefabInstance: {fileID: 4479333209984011371}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &563489005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,8 +2457,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147088971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.211, z: 1.947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2484,10 +2479,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 270450649}
   _linePrefab: {fileID: 6186584233613667126, guid: d4cac255cef6ea848b2516a941aa2ebb, type: 3}
-  maybeWork: {fileID: 375223613}
+  _lineZOffset: 0.01
   mapLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 128
 --- !u!1 &158016983418320915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,7 +2996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1888113287, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4479333208229335547, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: spawnedObjectParent
