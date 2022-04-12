@@ -77,13 +77,13 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.11321139
+        value: 0.10063052
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -122,13 +122,13 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 3
-    numCapVertices: 3
+    numCornerVertices: 6
+    numCapVertices: 6
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &6186584233613667126
 MonoBehaviour:

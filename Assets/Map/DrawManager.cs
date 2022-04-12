@@ -6,53 +6,41 @@ public class DrawManager : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Line _linePrefab;
-    [SerializeField] [Range(0.01f,0.9f)] private float _lineZOffset;
-    // [SerializeField] private Vector3 _linesCentralPointLocalCoordinates;
+    [SerializeField][Range(0.01f, 0.9f)] private float _lineZOffset = 0.01f;
+    [SerializeField] private LayerMask mapLayerMask;
+    [SerializeField] private Transform _map;
     public const float RESOLUTION = 0.01f;
     private Line _currentLine;
-    [SerializeField] private LayerMask mapLayerMask;
 
     void Update()
     {
         Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if(Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(ray, out hit, 5f, mapLayerMask))
         {
-            if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
+            if (Input.GetMouseButtonDown(0))
             {
-                //Vector3 position = new Vector3(hit.point.x,hit.point.y,hit.point.z + _lineZOffset);
-                _currentLine = Instantiate(_linePrefab, hit.point, Quaternion.identity, this.transform);
-                //BUG: if player change position this is not gonna working;
-                // _currentLine.transform.localPosition = new Vector3(
-                //     _linesCentralPointLocalCoordinates.x,
-                //     _linesCentralPointLocalCoordinates.y,
-                //     _linesCentralPointLocalCoordinates.z
-                // );
-
-                // _currentLine.transform.localPosition = new Vector3(
-                //     maybeWork.position.x,
-                //     maybeWork.position.y,
-                //     maybeWork.position.z
-                // );
-
-                //_currentLine.SetPositionOnZero();
+                _currentLine = Instantiate(_linePrefab, _map.transform.position, this.transform.rotation, this.transform);
+                ChangeTransformZOffset(_currentLine.transform, _lineZOffset);
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                //TODO: make if pointer exit from map stop working
+                if (Physics.Raycast(ray, out hit, 5f, mapLayerMask))
+                {
+                    _currentLine.SetPosition(_map.transform.InverseTransformPoint(hit.point) * _map.localScale.x);
+                }
             }
         }
+    }
 
-        //TODO: make if pointer exit from map stop working
-        if(Input.GetMouseButton(0))
-        {
-            if(Physics.Raycast(ray,out hit, 5f, mapLayerMask))
-            {
-                //Vector3 position = new Vector3(hit.point.x,hit.point.y,hit.point.z + _lineZOffset);
-                _currentLine.SetPosition(hit.point);
-            }
-        }
-
-        // if(Input.GetMouseButtonUp(0))
-        // {
-        //     _currentLine.RendererToLocalSpace();
-        // }
+    private void ChangeTransformZOffset(Transform target,float zOffset)
+    {
+        target.transform.localPosition = new Vector3(
+            target.transform.localPosition.x,
+            target.transform.localPosition.y + zOffset,
+            target.transform.localPosition.z
+        );
     }
 }
