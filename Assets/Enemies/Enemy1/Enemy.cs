@@ -29,13 +29,6 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Animator animator;
 
-    private enum EnemyState
-    {
-        Normal,
-        Chasing,
-        Searching
-    }
-
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -52,30 +45,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        DrawEnemyRadiusInFormOfSphere(enemyRadius, Color.red, yOffset);
+    }
+
     private void Update()
     {
-        EnemyStateMachina();
-
-        Debug.Log(player.transform.tag);
-        if (PlayerInRadius() && player.transform.tag == "Player" && enemyState != EnemyState.Chasing)
-        {
-            enemyState = EnemyState.Chasing;
-        }
-        if(!PlayerInRadius() && enemyState == EnemyState.Chasing)
-        {
-            SetRandomDestination();
-            enemyState = EnemyState.Normal;
-        }
-        if(PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing)
-        {
-            StartCoroutine(SearchingMode());
-        }
+        EnemyStateMachine();
     }
 
     private IEnumerator SearchingMode()
     {
         enemyState = EnemyState.Searching;
-        Debug.Log("Szukam");
+        Debug.Log("Searching");
         animator.SetBool("isSearching", true);
         navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(searchingTime);
@@ -83,12 +66,57 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isSearching", false);
         navMeshAgent.isStopped = false;
         enemyState = EnemyState.Normal;
-        Debug.Log("Skoñczy³em szukaæ");
+        Debug.Log("Searching Ended");
     }
 
-    private void EnemyStateMachina()
+    private void EnemyStateMachine()
     {
-        switch(enemyState)
+        SetChasingEnemyStateIfPlayerInRadiusAndPastStateOtherThenChasing();
+
+        StopChasingPlayerIfPlayerOutOfRadiusAndPastStateEqualsToChasing();
+
+        SearchForPlayerIfPlayerInSchoolLockerAndInRadius();
+        
+        EnemyActionsRelatedToState();
+    }
+
+    private void SetChasingEnemyStateIfPlayerInRadiusAndPastStateOtherThenChasing()
+    {
+        if (PlayerInRadius() && player.transform.tag == "Player" && enemyState != EnemyState.Chasing)
+        {
+            enemyState = EnemyState.Chasing;
+        }
+    }
+
+    private void StopChasingPlayerIfPlayerOutOfRadiusAndPastStateEqualsToChasing()
+    {
+        if (!PlayerInRadius() && enemyState == EnemyState.Chasing)
+        {
+            SetRandomDestination();
+            enemyState = EnemyState.Normal;
+        }
+    }
+
+    private void SearchForPlayerIfPlayerInSchoolLockerAndInRadius()
+    {
+        if (PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing)
+        {
+            StartCoroutine(SearchingMode());
+        }
+    }
+
+    private bool PlayerInRadius()
+    {
+        if (Mathf.CeilToInt(Vector3.Distance(player.transform.position, this.transform.position)) <= enemyRadius)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void EnemyActionsRelatedToState()
+    {
+        switch (enemyState)
         {
             case EnemyState.Normal:
                 ChangeDestinationAfterReach();
@@ -105,13 +133,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private bool PlayerInRadius()
+    private void ChangeDestinationAfterReach()
     {
-        if (Mathf.CeilToInt(Vector3.Distance(player.transform.position, this.transform.position)) <= enemyRadius)
+        if (Vector3.Distance(this.transform.position, currentDestination) < distanceToChangePoint)
         {
-            return true;
+            SetRandomDestination();
         }
-        return false;
+    }
+
+    private void RotateAtPlayerDirection()
+    {
+        Vector3 dir = player.transform.position - transform.position;
+        dir.y = 0;
+        var rotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
     }
 
     private void ChasePlayer()
@@ -119,30 +154,17 @@ public class Enemy : MonoBehaviour
         navMeshAgent.destination = player.transform.position;
     }
 
-    private void OnDrawGizmos()
-    {
-        DrawDistance(enemyRadius, Color.red, yOffset);
-    }
-
-    private void DrawDistance(float distance, Color color)
+    private void DrawEnemyRadiusInFormOfSphere(float radius, Color color)
     {
         Gizmos.color = color;
-        Gizmos.DrawWireSphere(this.transform.position, distance);
+        Gizmos.DrawWireSphere(this.transform.position, radius);
     }
 
-    private void DrawDistance(float distance, Color color, float yOffset)
+    private void DrawEnemyRadiusInFormOfSphere(float radius, Color color, float yOffset)
     {
         Gizmos.color = color;
         Gizmos.DrawWireSphere(new Vector3
-            (this.transform.position.x, this.transform.position.y + yOffset, this.transform.position.z), distance);
-    }
-
-    private void ChangeDestinationAfterReach()
-    {
-        if (Vector3.Distance(this.transform.position, currentDestination) < distanceToChangePoint)
-        {
-            SetRandomDestination();
-        }
+            (this.transform.position.x, this.transform.position.y + yOffset, this.transform.position.z), radius);
     }
 
     private void SetRandomDestination()
@@ -161,13 +183,5 @@ public class Enemy : MonoBehaviour
         {
             currentDestination = spawnPointTransforms[Random.Range(0, spawnPointTransforms.Length)].position;
         }
-    }
-
-    private void RotateAtPlayerDirection()
-    {
-        Vector3 dir = player.transform.position - transform.position;
-        dir.y = 0;
-        var rotation = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
     }
 }

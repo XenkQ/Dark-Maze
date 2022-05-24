@@ -19,18 +19,15 @@ public class AmbientSoundsPlayer : MonoBehaviour
 
     private void Update()
     {
-        PlayAmbientSoundsProcess();
+        PlayRandomAmbientSoundAfterRandomDelay();
     }
 
-    private void PlayAmbientSoundsProcess()
+    private void PlayRandomAmbientSoundAfterRandomDelay()
     {
         if (spawningDelay < 0)
         {
-            if (!audioSource.isPlaying)
-            {
-                PlayAudio();
-                RandomDelay(playSoundDelayMin, playSoundDelayMax);
-            }
+            RandomDelay(playSoundDelayMin, playSoundDelayMax);
+            PlayRandomAmbientSoundProcess();
         }
         else
         {
@@ -38,9 +35,22 @@ public class AmbientSoundsPlayer : MonoBehaviour
         }
     }
 
-    private void PlayAudio()
+    private void PlayRandomAmbientSoundProcess()
     {
-        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+        if (!audioSource.isPlaying)
+        {
+            PlayAudio(GetRandomSound());
+        }
+    }
+
+    private void PlayAudio(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
+    private AudioClip GetRandomSound()
+    {
+        return audioClips[Random.Range(0, audioClips.Length)];
     }
 
     private void RandomDelay(float min, float max)
