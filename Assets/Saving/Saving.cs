@@ -10,7 +10,7 @@ public class Saving : MonoBehaviour
 
     private void Awake()
     {
-        _settingsFilePath = Application.dataPath + "/settingsFile.json";
+        _settingsFilePath = Application.dataPath + "/Saving/settingsFile.json";
         SetSettingsData();
         DontDestroyOnLoad(this.gameObject);
     }

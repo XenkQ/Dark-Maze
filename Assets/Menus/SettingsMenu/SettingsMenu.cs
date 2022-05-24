@@ -57,11 +57,6 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
         SetSettingsValues();
     }
 
-    private void Start()
-    {
-        //DisableOnStart();
-    }
-
     public void OnButtonClick(Button button)
     {
         switch (button.name)

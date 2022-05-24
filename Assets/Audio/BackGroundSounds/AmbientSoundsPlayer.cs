@@ -5,11 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AmbientSoundsPlayer : MonoBehaviour
 {
-    private AudioSource audioSource;
     [SerializeField] private float playSoundDelayMin = 30;
     [SerializeField] private float playSoundDelayMax = 50;
-    private float spawningDelay = 0;
     [SerializeField] private AudioClip[] audioClips;
+    private AudioSource audioSource;
+    private float spawningDelay = 0;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -18,12 +19,17 @@ public class AmbientSoundsPlayer : MonoBehaviour
 
     private void Update()
     {
+        PlayAmbientSoundsProcess();
+    }
+
+    private void PlayAmbientSoundsProcess()
+    {
         if (spawningDelay < 0)
         {
             if (!audioSource.isPlaying)
             {
                 PlayAudio();
-                RandomDelay(playSoundDelayMin,playSoundDelayMax);
+                RandomDelay(playSoundDelayMin, playSoundDelayMax);
             }
         }
         else
@@ -32,13 +38,13 @@ public class AmbientSoundsPlayer : MonoBehaviour
         }
     }
 
-    private void RandomDelay(float min, float max)
-    {
-        spawningDelay = Random.Range(min, max + 1);
-    }
-
     private void PlayAudio()
     {
         audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+    }
+
+    private void RandomDelay(float min, float max)
+    {
+        spawningDelay = Random.Range(min, max + 1);
     }
 }
