@@ -4,69 +4,50 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Animator))]
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(Enemy1AnimationsMenager))]
+public class Enemy1 : MonoBehaviour
 {
-    [Header("Rotation")]
+    [Header("Targets")]
     private GameObject player;
+
+    [Header("Rotation")]
     [SerializeField] private int rotationSpeed = 8;
 
     [Header("EnemyPaths")]
-    [SerializeField] private bool lookForPath = true;
     [SerializeField] private Transform[] spawnPointTransforms;
+    [SerializeField] private float distanceToChangePoint = 4;
     private Vector3 currentDestination;
     private Vector3 lastDestination;
-    [SerializeField] private float distanceToChangePoint = 4;
 
     [Header("Enemy - player interactions")]
     [SerializeField] [Range(1, 25)] private int enemyRadius;
-    [SerializeField] [Range(-10f, 10f)] private float yOffset = 1f;
+    public int EnemyRadius { get { return enemyRadius; } }
     [SerializeField] private EnemyState enemyState;
     [SerializeField] private float searchingTime;
-    [SerializeField] private List<Transform> schoolLockers;
 
     [Header("Enemy Compontents")]
     private NavMeshAgent navMeshAgent;
-    private Animator animator;
+
+    [Header("Other Scripts")]
+    private Enemy1AnimationsMenager animationsMenager;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        animationsMenager = GetComponent<Enemy1AnimationsMenager>();
     }
 
     private void Start()
     {
         enemyState = EnemyState.Normal;
-        animator = GetComponent<Animator>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        if(lookForPath)
-        {
-            SetRandomDestination();
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        DrawEnemyRadiusInFormOfSphere(enemyRadius, Color.red, yOffset);
+        SetRandomDestination();
     }
 
     private void Update()
     {
         EnemyStateMachine();
-    }
-
-    private IEnumerator SearchingMode()
-    {
-        enemyState = EnemyState.Searching;
-        Debug.Log("Searching");
-        animator.SetBool("isSearching", true);
-        navMeshAgent.isStopped = true;
-        yield return new WaitForSeconds(searchingTime);
-        SetRandomDestination();
-        animator.SetBool("isSearching", false);
-        navMeshAgent.isStopped = false;
-        enemyState = EnemyState.Normal;
-        Debug.Log("Searching Ended");
+        ChangeDestinationAfterReach();
     }
 
     private void EnemyStateMachine()
@@ -76,7 +57,7 @@ public class Enemy : MonoBehaviour
         StopChasingPlayerIfPlayerOutOfRadiusAndPastStateEqualsToChasing();
 
         SearchForPlayerIfPlayerInSchoolLockerAndInRadius();
-        
+
         EnemyActionsRelatedToState();
     }
 
@@ -92,7 +73,6 @@ public class Enemy : MonoBehaviour
     {
         if (!PlayerInRadius() && enemyState == EnemyState.Chasing)
         {
-            SetRandomDestination();
             enemyState = EnemyState.Normal;
         }
     }
@@ -101,10 +81,9 @@ public class Enemy : MonoBehaviour
     {
         if (PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing)
         {
-            StartCoroutine(SearchingMode());
+            enemyState = EnemyState.Searching;
         }
     }
-
     private bool PlayerInRadius()
     {
         if (Mathf.CeilToInt(Vector3.Distance(player.transform.position, this.transform.position)) <= enemyRadius)
@@ -114,12 +93,65 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
+    private void ChangeDestinationAfterReach()
+    {
+        if (Vector3.Distance(this.transform.position, currentDestination) < distanceToChangePoint)
+        {
+            SetRandomDestination();
+        }
+    }
+
+    private void StopEnemyMovement()
+    {
+        if (navMeshAgent.isStopped == false)
+        {
+            navMeshAgent.isStopped = true;
+        }
+    }
+
+    private void ResumeEnemyMovement()
+    {
+        if (navMeshAgent.isStopped == true)
+        {
+            navMeshAgent.isStopped = false;
+        }
+    }
+
+    private void SetRandomDestination()
+    {
+        Debug.Log("Zmiana");
+        if (lastDestination != null)
+        {
+            lastDestination = currentDestination;
+            do
+            {
+                currentDestination = GetRandomDestinationPointPosition();
+            }
+            while (lastDestination == currentDestination);
+            navMeshAgent.destination = currentDestination;
+        }
+        else
+        {
+            currentDestination = GetRandomDestinationPointPosition();
+        }
+    }
+
+    private Vector3 GetRandomDestinationPointPosition()
+    {
+        return GetRandomDestinationPoint().position;
+    }
+
+    private Transform GetRandomDestinationPoint()
+    {
+        return spawnPointTransforms[Random.Range(0, spawnPointTransforms.Length)];
+    }
+
     private void EnemyActionsRelatedToState()
     {
         switch (enemyState)
         {
             case EnemyState.Normal:
-                ChangeDestinationAfterReach();
+                ChangeBackToCurrentDestination();
                 break;
 
             case EnemyState.Chasing:
@@ -128,17 +160,14 @@ public class Enemy : MonoBehaviour
                 break;
 
             case EnemyState.Searching:
-                //SeachForPlayer()
+                StartCoroutine(LookAroundProcess());
                 break;
         }
     }
 
-    private void ChangeDestinationAfterReach()
+    private void ChangeBackToCurrentDestination()
     {
-        if (Vector3.Distance(this.transform.position, currentDestination) < distanceToChangePoint)
-        {
-            SetRandomDestination();
-        }
+        navMeshAgent.destination = currentDestination;
     }
 
     private void RotateAtPlayerDirection()
@@ -154,34 +183,28 @@ public class Enemy : MonoBehaviour
         navMeshAgent.destination = player.transform.position;
     }
 
-    private void DrawEnemyRadiusInFormOfSphere(float radius, Color color)
+    private IEnumerator LookAroundProcess()
     {
-        Gizmos.color = color;
-        Gizmos.DrawWireSphere(this.transform.position, radius);
+        Debug.Log("State: " + enemyState);
+        LookAround();
+        yield return new WaitForSeconds(searchingTime);
+        StopLookingAround();
     }
 
-    private void DrawEnemyRadiusInFormOfSphere(float radius, Color color, float yOffset)
+    private void LookAround()
     {
-        Gizmos.color = color;
-        Gizmos.DrawWireSphere(new Vector3
-            (this.transform.position.x, this.transform.position.y + yOffset, this.transform.position.z), radius);
+        enemyState = EnemyState.Searching;
+        animationsMenager.StartSearchingAnimation();
+        StopEnemyMovement();
+        Debug.Log("Searching");
     }
 
-    private void SetRandomDestination()
+    private void StopLookingAround()
     {
-        if(lastDestination != null)
-        {
-            lastDestination = currentDestination;
-            do
-            {
-                currentDestination = spawnPointTransforms[Random.Range(0, spawnPointTransforms.Length)].position;
-            }
-            while (lastDestination == currentDestination);
-            navMeshAgent.destination = currentDestination;
-        }
-        else
-        {
-            currentDestination = spawnPointTransforms[Random.Range(0, spawnPointTransforms.Length)].position;
-        }
+        ChangeBackToCurrentDestination();
+        animationsMenager.StopSearchingAnimation();
+        ResumeEnemyMovement();
+        enemyState = EnemyState.Normal;
+        Debug.Log("Searching Ended");
     }
 }

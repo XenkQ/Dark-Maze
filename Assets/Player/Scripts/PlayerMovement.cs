@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private float buttonTimeIsPressed = 0;
     private AudioClip lastStep;
 
-
     private void Start()
     {
         controler = GetComponent<CharacterController>();

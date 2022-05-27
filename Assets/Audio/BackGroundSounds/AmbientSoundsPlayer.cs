@@ -7,13 +7,17 @@ public class AmbientSoundsPlayer : MonoBehaviour
 {
     [SerializeField] private float playSoundDelayMin = 30;
     [SerializeField] private float playSoundDelayMax = 50;
-    [SerializeField] private AudioClip[] audioClips;
+    [SerializeField] private AudioClip[] ambientSounds;
     private AudioSource audioSource;
     private float spawningDelay = 0;
 
-    private void Start()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
         spawningDelay = playSoundDelayMin;
     }
 
@@ -50,7 +54,7 @@ public class AmbientSoundsPlayer : MonoBehaviour
 
     private AudioClip GetRandomSound()
     {
-        return audioClips[Random.Range(0, audioClips.Length)];
+        return ambientSounds[Random.Range(0, ambientSounds.Length)];
     }
 
     private void RandomDelay(float min, float max)

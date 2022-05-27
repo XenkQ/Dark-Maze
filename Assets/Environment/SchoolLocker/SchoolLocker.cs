@@ -6,11 +6,39 @@ public class SchoolLocker : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
+    private Player player;
     public bool IsOpen { get { return isOpen; } }
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        LockerTriggersRelatedToPlayerActions(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        LockerTriggersRelatedToPlayerActions(other);
+    }
+
+    private void LockerTriggersRelatedToPlayerActions(Collider other)
+    {
+        if (other.tag == "Player" && !isOpen)
+        {
+            player.MakePlayerUnkillable();
+        }
+        else if(other.tag == "UnkillablePlayer" && isOpen)
+        {
+            player.MakePlayerKillable();
+        }
+        else if (other.tag == "UnkillablePlayer" && isOpen)
+        {
+            player.MakePlayerKillable();
+        }
     }
 
     public void PlayOpenAnimation()
@@ -23,25 +51,5 @@ public class SchoolLocker : MonoBehaviour
     {
         animator.SetTrigger("CloseLocker");
         isOpen = false;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player" && !isOpen)
-        {
-            other.transform.tag = "UnkillablePlayer";
-        }
-        else if(other.tag == "UnkillablePlayer" && isOpen)
-        {
-            other.transform.tag = "Player";
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "UnkillablePlayer" && isOpen)
-        {
-            other.transform.tag = "Player";
-        }
     }
 }

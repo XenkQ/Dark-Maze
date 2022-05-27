@@ -227,9 +227,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2929707011030533930}
+  - component: {fileID: 2929707011030533931}
+  - component: {fileID: 117456216323461356}
+  - component: {fileID: 1253095084}
   - component: {fileID: 2929707011030533934}
   - component: {fileID: 2929707011030533928}
-  - component: {fileID: 2929707011030533931}
   m_Layer: 0
   m_Name: HorrorModel1@
   m_TagString: Untagged
@@ -254,6 +256,55 @@ Transform:
   m_Father: {fileID: 2929707012416095257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2929707011030533931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929707011030533941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25a28aa1e3c2b7499a1e900d0688488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 8
+  spawnPointTransforms:
+  - {fileID: 2929707012287116237}
+  - {fileID: 2929707010762112222}
+  - {fileID: 2929707012661067937}
+  - {fileID: 2929707012189326376}
+  distanceToChangePoint: 5
+  enemyRadius: 16
+  enemyState: 0
+  searchingTime: 4
+--- !u!114 &117456216323461356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929707011030533941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728a0e3f4ce7964468c92198d9b5e81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2929707011030533934}
+--- !u!114 &1253095084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929707011030533941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52746097d117e3458b041bfb96a663a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCentreYOffset: 1
+  enemy: {fileID: 2929707011030533931}
 --- !u!95 &2929707011030533934
 Animator:
   serializedVersion: 4
@@ -296,31 +347,6 @@ NavMeshAgent:
   m_BaseOffset: -0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2929707011030533931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2929707011030533941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25a28aa1e3c2b7499a1e900d0688488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 8
-  lookForPath: 1
-  spawnPointTransforms:
-  - {fileID: 2929707012287116237}
-  - {fileID: 2929707010762112222}
-  - {fileID: 2929707012661067937}
-  - {fileID: 2929707012189326376}
-  distanceToChangePoint: 5
-  enemyRadius: 16
-  yOffset: 1
-  enemyState: 0
-  searchingTime: 4
-  schoolLockers: []
 --- !u!1 &2929707011068950562
 GameObject:
   m_ObjectHideFlags: 0
