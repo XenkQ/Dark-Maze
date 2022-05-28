@@ -7,16 +7,6 @@ public class Line : MonoBehaviour
 {
     [SerializeField] private LineRenderer _renderer;
 
-    public void SetPositionOnZero()
-    {
-        _renderer.positionCount++;
-        
-        if(_renderer.positionCount == 1)
-        {
-            _renderer.SetPosition(0, Vector3.zero);
-        }
-    }
-
     public void SetPosition(Vector3 pos)
     {
         if(!CanAppend(pos)) return;

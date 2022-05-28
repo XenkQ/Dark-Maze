@@ -4,43 +4,60 @@ using UnityEngine;
 
 public class DrawManager : MonoBehaviour
 {
-    [SerializeField] private Camera _mainCamera;
-    [SerializeField] private Line _linePrefab;
-    [SerializeField][Range(0.01f, 0.9f)] private float _lineZOffset = 0.01f;
-    [SerializeField] private LayerMask mapLayerMask;
-    [SerializeField] private Transform _map;
+    [Header("Draw Properties")]
+    [SerializeField][Range(0.01f, 0.9f)] private float lineZOffset = 0.01f;
     public const float RESOLUTION = 0.01f;
-    private Line _currentLine;
+
+    [Header("Line Prefabs")]
+    [SerializeField] private Line linePrefab;
+    private Line currentLine;
+
+    [Header("Other Components")]
+    [SerializeField] private Camera mainCamera;
+
+    [Header("Ray Properties")]
+    [SerializeField] private float rayMaxDistance = 5f;
+    [SerializeField] private LayerMask mapLayerMask;
+
+    [Header("Other Scripts")]
+    [SerializeField] private Map map;
 
     void Update()
     {
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        DrawingProcess();
+    }
+
+    private void DrawingProcess()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 5f, mapLayerMask))
+        if (Physics.Raycast(ray, out hit, rayMaxDistance, mapLayerMask) && map.IsMapVisible())
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _currentLine = Instantiate(_linePrefab, _map.transform.position, this.transform.rotation, this.transform);
-                ChangeTransformZOffset(_currentLine.transform, _lineZOffset);
+                CreateNewCurrentLine();
+                ChangeCurrentLineZOffset(currentLine.transform, lineZOffset);
             }
             else if (Input.GetMouseButton(0))
             {
                 //TODO: make if pointer exit from map stop working
-                if (Physics.Raycast(ray, out hit, 5f, mapLayerMask))
-                {
-                    _currentLine.SetPosition(_map.transform.InverseTransformPoint(hit.point) * _map.localScale.x);
-                }
+                currentLine.SetPosition(map.transform.InverseTransformPoint(hit.point) * map.transform.localScale.x);
             }
         }
     }
 
-    private void ChangeTransformZOffset(Transform target,float zOffset)
+    private void CreateNewCurrentLine()
     {
-        target.transform.localPosition = new Vector3(
-            target.transform.localPosition.x,
-            target.transform.localPosition.y + zOffset,
-            target.transform.localPosition.z
+        currentLine = Instantiate(linePrefab, map.transform.position, transform.rotation, transform);
+    }
+
+    private void ChangeCurrentLineZOffset(Transform currentLine,float zOffset)
+    {
+        currentLine.transform.localPosition = new Vector3(
+            currentLine.transform.localPosition.x,
+            currentLine.transform.localPosition.y + zOffset,
+            currentLine.transform.localPosition.z
         );
     }
 }
