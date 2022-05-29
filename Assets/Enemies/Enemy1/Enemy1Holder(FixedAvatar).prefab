@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 2929707011030533934}
   - component: {fileID: 2929707011030533928}
   m_Layer: 0
-  m_Name: HorrorModel1@
+  m_Name: HorrorModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 2929707012219151414}
   - component: {fileID: 2929707012219151415}
   m_Layer: 0
-  m_Name: HorrorModel1.001
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

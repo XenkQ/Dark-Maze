@@ -6,10 +6,12 @@ public class Map : MonoBehaviour
 {
     [SerializeField] private GameTimeMenager gameTimeMenager;
     private MeshRenderer meshRenderer;
+    private MeshCollider meshCollider;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        meshCollider = GetComponent<MeshCollider>();
     }
 
     private void Update()
@@ -36,6 +38,7 @@ public class Map : MonoBehaviour
     private void SwitchMapVisibility()
     {
         meshRenderer.enabled = !meshRenderer.enabled;
+        meshCollider.enabled = !meshCollider.enabled;
     }
 
     public bool IsMapVisible()
