@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+//TODO: CLASS FOR REFACTORING
 public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
 {
     [Header("Text")]
@@ -81,7 +82,6 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
         FontExitEffect(button);
     }
 
-    //? czy zrobiæ to w innej klasie ? by³o by do menu i main menu
     private void FontHoveredEffect(Button button)
     {
         TextMeshProUGUI text = button.transform.GetComponentInChildren<TextMeshProUGUI>();
@@ -96,28 +96,20 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
         uIControlsVisualEffects.ChangeFontColor(text, standardFontColor);
     }
 
-    private void DisableOnStart()
-    {
-        if (this.transform.parent.gameObject.active == true)
-        {
-            this.transform.parent.gameObject.SetActive(false);
-        }
-    }
-
     private void SetSettingsValues()
     {
         if(saving.isSettingsFileExists())
         {
             SetMouseSettingsOnStart();
 
-            //Poprawiæ bo nie zaczytuje z jasona
+            //TODO: Make readable from jason
             volumeText.text = volumeTextValue.ToString();
             volumeSlider.value = volumeSliderValue;
             Debug.Log(volumeValue);
             audioMixer.ClearFloat("volume");
             SetVolume(volumeValue);
 
-            //naprawiæ by dzia³a³o poza settingsami
+            //TODO: Make working out of settings
             SetResolutionSettingsOnStart();
             SetQualitySettingsOnStart();
             SettFullScreenSettingsOnStart();
@@ -128,12 +120,6 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
     {
         ChangeFullScreenToggleValue(isFullScreen);
         SetFullScreen(isFullScreen);
-    }
-
-    private void SetQualitySettingsOnStart()
-    {
-        ChangeQualityDropDownValue(qualityIndex);
-        SetQuality(qualityIndex);
     }
 
     private void SetResolutionSettingsOnStart()
@@ -154,39 +140,22 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
         SetFullScreen(isFullScreen);
     }
 
+    private void SetQualitySettingsOnStart()
+    {
+        ChangeQualityDropDownValue(qualityIndex);
+        SetQuality(qualityIndex);
+    }
+
     private void ChangeQualityDropDownValue(int qualityIndex)
     {
         qualityDropDown.value = qualityIndex;
         SetQuality(qualityIndex);
     }
 
-    private void ChangeResolutionDropDownValue(int resolutionIndex)
+    public void SetQuality(int _qualityIndex)
     {
-        resolutionDropDown.value = resolutionIndex;
-        SetResolution(resolutionIndex);
-    }
-
-    public void OnVolumeChange()
-    {
-        float value = volumeSlider.value;
-        volumeSliderValue = value;
-        volumeText.text = Mathf.Round(value * 100).ToString();
-        volumeTextValue = int.Parse(volumeText.text);
-        value = Mathf.Log10(value) * 20;
-        volumeValue = value;
-        SetVolume(value);
-    }
-
-    public void SetVolume(float volumeValue)
-    {
-        audioMixer.SetFloat("volume", volumeValue);
-    }
-
-    public void SetResolution(int _resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        resolutionIndex = _resolutionIndex;
+        QualitySettings.SetQualityLevel(qualityIndex);
+        qualityIndex = _qualityIndex;
     }
 
     private void FillResolutionDropBox()
@@ -217,6 +186,34 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
         resolutionDropDown.RefreshShownValue();
     }
 
+    private void ChangeResolutionDropDownValue(int resolutionIndex)
+    {
+        resolutionDropDown.value = resolutionIndex;
+        SetResolution(resolutionIndex);
+    }
+
+    public void SetResolution(int _resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        resolutionIndex = _resolutionIndex;
+    }
+
+    public void OnVolumeChange()
+    {
+        float value = volumeSlider.value;
+        volumeSliderValue = value;
+        volumeText.text = Mathf.Round(value * 100).ToString();
+        volumeTextValue = int.Parse(volumeText.text);
+        value = Mathf.Log10(value) * 20;
+        volumeValue = value;
+        SetVolume(value);
+    }
+
+    public void SetVolume(float volumeValue)
+    {
+        audioMixer.SetFloat("volume", volumeValue);
+    }
     public void OnSensitivityChange()
     {
         mouseSensitivityValue = Mathf.RoundToInt(sensitivitySlider.value);
@@ -247,12 +244,6 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
     private void ResetAllTextColors()
     {
         uIControlsVisualEffects.ResetAllTextColors(new TextMeshProUGUI[] { backButtonText, saveButtonText}, standardFontColor);
-    }
-
-    public void SetQuality(int _qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-        qualityIndex = _qualityIndex;
     }
 
     public void SetFullScreen(bool _isFullScreen)

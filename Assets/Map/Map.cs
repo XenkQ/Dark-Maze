@@ -49,12 +49,12 @@ public class Map : MonoBehaviour
     private void ActiveMapDrawMode()
     {
         gameTimeMenager.PauseGame();
-        Cursor.lockState = CursorLockMode.None;
+        CursorMenager.UnlockCursor();
     }
 
     private void DisableMapDrawMode()
     {
         gameTimeMenager.UnpauseGame();
-        Cursor.lockState = CursorLockMode.Locked;
+        CursorMenager.LockCursor();
     }
 }

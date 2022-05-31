@@ -19,12 +19,15 @@ public class PlayerMovement : MonoBehaviour
     private float buttonTimeIsPressed = 0;
     private AudioClip lastStep;
 
-    private void Start()
+    private void Awake()
     {
         controler = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
         lastStep = RandomStep();
     }
 

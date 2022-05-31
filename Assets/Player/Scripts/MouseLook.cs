@@ -12,11 +12,11 @@ public class MouseLook : MonoBehaviour
     private void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        CursorMenager.LockCursor();
     }
 
     private void Start()
     {
-        Screen.lockCursor = true;
         MouseSensitivityCheck();
     }
 
