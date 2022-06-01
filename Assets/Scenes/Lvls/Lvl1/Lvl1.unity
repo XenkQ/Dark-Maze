@@ -870,14 +870,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 223361693, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023542425, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2864647886952227753, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: gameTimeMenager
       value: 
@@ -929,10 +921,6 @@ PrefabInstance:
     - target: {fileID: 4479333209271154342, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479333209271154361, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: maxInteractionRange
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
