@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy1))]
+[RequireComponent(typeof(Enemy))]
 public class Enemy1EditorEffects : MonoBehaviour
 {
     [SerializeField] [Range(-10f, 10f)] private float sphereCentreYOffset = 1f;
-    [SerializeField] private Enemy1 enemy;
+    [SerializeField] private Enemy enemy;
 
     private void OnDrawGizmos()
     {

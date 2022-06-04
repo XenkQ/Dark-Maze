@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Enemy1AnimationsMenager))]
-public class Enemy1 : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [Header("Targets")]
-    private GameObject player;
+    private Player player;
 
     [Header("Rotation")]
     [SerializeField] private int rotationSpeed = 8;
@@ -31,11 +31,15 @@ public class Enemy1 : MonoBehaviour
     [Header("Other Scripts")]
     private Enemy1AnimationsMenager animationsMenager;
 
+    [Header("Objects")]
+    private Camera playerCamera;
+
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animationsMenager = GetComponent<Enemy1AnimationsMenager>();
+        playerCamera = player.PlayerCamera;
     }
 
     private void Start()
@@ -48,6 +52,11 @@ public class Enemy1 : MonoBehaviour
     {
         EnemyStateMachine();
         ChangeDestinationAfterReach();
+
+        if(IsVisibleByCamera())
+        {
+            Debug.Log("isVisible" + transform.name);
+        }
     }
 
     private void EnemyStateMachine()
@@ -206,5 +215,23 @@ public class Enemy1 : MonoBehaviour
         ResumeEnemyMovement();
         enemyState = EnemyState.Normal;
         Debug.Log("Searching Ended");
+    }
+
+    //TODO: CHANGE FOR MESH RENDERER NOT FOR Transform
+
+    public bool IsVisibleByCamera()
+    {
+        var planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
+        Vector2 point = transform.position;
+
+        foreach(var plane in planes)
+        {
+            if(plane.GetDistanceToPoint(point) < 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

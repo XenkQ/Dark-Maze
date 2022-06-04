@@ -6,17 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("MovementPlayer")]
     [SerializeField] private float speedMultipler = 0;
-    private Vector3 playerMovementInput;
-    private float movementValueHorizontal = 0;
-    private float movementValueVertical = 0;
     private CharacterController controler;
     private Transform playerTransform;
 
     [Header("Audio")]
-    private AudioSource audioSource;
     [SerializeField] private AudioClip[] steps;
     [SerializeField] private float timeToPlaySongAfterClick = 1;
     private float buttonTimeIsPressed = 0;
+    private AudioSource audioSource;
     private AudioClip lastStep;
 
     private void Awake()
