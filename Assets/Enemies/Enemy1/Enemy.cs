@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         SetRandomDestination();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         EnemyStateMachine();
         ChangeDestinationAfterReach();
@@ -217,7 +217,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Searching Ended");
     }
 
-    //TODO: CHANGE FOR MESH RENDERER NOT FOR Transform
+    //TODO: Add layer becouse player can see enemy through walls
 
     public bool IsVisibleByCamera()
     {

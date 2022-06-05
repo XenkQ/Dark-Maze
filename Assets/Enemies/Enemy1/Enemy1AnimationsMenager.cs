@@ -5,7 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Enemy1AnimationsMenager : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void StartSearchingAnimation()
     {

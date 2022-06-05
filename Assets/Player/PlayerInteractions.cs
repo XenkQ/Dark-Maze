@@ -9,7 +9,6 @@ public class PlayerInteractions : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Player player;
-    [SerializeField] private Enemy[] enemiesPrefabs;
     private Camera playerCamera;
     private SchoolLocker currentSchoolLocker;
 
@@ -29,7 +28,6 @@ public class PlayerInteractions : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hitinfo, maxInteractionRange))
         {
             ActionsAfterPlayerSeesSchoolLockerDoors(ray, hitinfo);
-            ///Debug.Log(hitinfo.transform.name);
         }
         else
         {
@@ -58,14 +56,4 @@ public class PlayerInteractions : MonoBehaviour
             currentSchoolLocker.PlayCloseAnimation();
         }
     }
-
-    //private Enemy getEnemySeenByPlayer()
-    //{
-    //    Enemy enemyVisibleByCamera;
-
-    //    foreach (Enemy enemy in enemiesPrefabs)
-    //    {
-    //        if (enemy)
-    //    }
-    //}
 }

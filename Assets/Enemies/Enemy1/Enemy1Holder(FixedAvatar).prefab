@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 2929707011030533931}
   - component: {fileID: 117456216323461356}
   - component: {fileID: 1253095084}
+  - component: {fileID: 149488950}
   - component: {fileID: 2929707011030533934}
   - component: {fileID: 2929707011030533928}
   - component: {fileID: 1861273076219585495}
@@ -249,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929707011030533941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.9, y: 0.018942595, z: -50.7}
+  m_LocalPosition: {x: 54.9, y: 0.01894259, z: -50.7}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -293,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728a0e3f4ce7964468c92198d9b5e81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2929707011030533934}
 --- !u!114 &1253095084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +308,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereCentreYOffset: 1
   enemy: {fileID: 2929707011030533931}
+--- !u!114 &149488950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929707011030533941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3a4662bc812c478e9fa99abbebaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeHowLongPlayerMustSeeOpponentToActivateJumpScare: 3
+  jumpScareObject: {fileID: 0}
+  objectsToDisableWhenJumpScare:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &2929707011030533934
 Animator:
   serializedVersion: 4
@@ -860,7 +877,7 @@ Transform:
   m_GameObject: {fileID: 2929707011902266467}
   m_LocalRotation: {x: 0.11568465, y: -0.17243189, z: -0.0039940765, w: 0.97819656}
   m_LocalPosition: {x: 0.00000019073485, y: 0.84024435, z: -0.00000042915343}
-  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 0.99999994}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2929707011369643759}
@@ -892,7 +909,7 @@ Transform:
   m_GameObject: {fileID: 2929707012107004160}
   m_LocalRotation: {x: -0.09095102, y: 0.26318145, z: 0.023382576, w: 0.96016496}
   m_LocalPosition: {x: 0.000000057220458, y: 0.8402443, z: -0.00000019073485}
-  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2929707011558986672}
