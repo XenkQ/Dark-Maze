@@ -31,6 +31,10 @@ public class Enemy : MonoBehaviour
     [Header("Other Scripts")]
     private Enemy1AnimationsMenager animationsMenager;
 
+    [Header("Enemy is visible ray")]
+    [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private float maxDistanceTheOpponentCanBeSeen = 20f;
+
     [Header("Objects")]
     private Camera playerCamera;
 
@@ -217,16 +221,37 @@ public class Enemy : MonoBehaviour
         Debug.Log("Searching Ended");
     }
 
-    //TODO: Add layer becouse player can see enemy through walls
-
     public bool IsVisibleByCamera()
+    {
+        return IsCameraTurnedInEnemyDirection() == true && IsTargetBehindObstacle() == false;
+    }
+
+    public bool IsTargetBehindObstacle()
+    {
+        Vector3 targetPos = playerCamera.transform.position;
+        Vector3 dirToTarget = (targetPos - transform.position).normalized;
+        float distanceToTarget = Vector3.Distance(transform.position, playerCamera.transform.position);
+
+        if(!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstacleMask))
+        {
+            Debug.DrawLine(transform.position, targetPos, Color.blue);
+            return false;
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, targetPos, Color.red);
+            return true;
+        }
+    }
+
+    private bool IsCameraTurnedInEnemyDirection()
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
         Vector2 point = transform.position;
 
-        foreach(var plane in planes)
+        foreach (var plane in planes)
         {
-            if(plane.GetDistanceToPoint(point) < 0)
+            if (plane.GetDistanceToPoint(point) < 0)
             {
                 return false;
             }

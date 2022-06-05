@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - SchoolLockerDoor
   - UnkillablePlayer
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - Wall
   - PlayerMapIcon
   - Map
-  - 
-  - 
-  - 
+  - Enemy
+  - Obstacle
+  - JumpScare
   - 
   - 
   - 

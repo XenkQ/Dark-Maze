@@ -7,6 +7,7 @@ using UnityEngine;
 public class Enemy1JumpScareMenager : MonoBehaviour
 {
     [Header("JumpScare Properties")]
+    [SerializeField] private float minDistanceToInstantJumpScare = 3f;
     [SerializeField] private float timeHowLongPlayerMustSeeOpponentToActivateJumpScare = 3f;
     [SerializeField] private GameObject jumpScareObject;
     [SerializeField] private GameObject[] objectsToDisableWhenJumpScare;
@@ -14,10 +15,12 @@ public class Enemy1JumpScareMenager : MonoBehaviour
 
     [Header("Other Scripts")]
     private Enemy enemy;
+    private Player player;
 
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Update()
@@ -27,11 +30,12 @@ public class Enemy1JumpScareMenager : MonoBehaviour
 
     private void JumpScareProcess()
     {
-        Debug.Log("JumpScareProcessStart" + (enemy.IsVisibleByCamera() && isJumpScareActivating == false));
         if (enemy.IsVisibleByCamera() && isJumpScareActivating == false)
         {
             StartCoroutine(WaitForJumpScare());
         }
+
+        JumpScareIfPlayerTooClose();
     }
 
     private IEnumerator WaitForJumpScare()
@@ -48,6 +52,17 @@ public class Enemy1JumpScareMenager : MonoBehaviour
         if (enemy.IsVisibleByCamera())
         {
             JumpScareActivationProcess();
+        }
+    }
+
+    private void JumpScareIfPlayerTooClose()
+    {
+        Vector3 playerPos = player.transform.position;
+        Debug.Log("<color='yellow'>Mniejszy dystans " + (Vector3.Distance(transform.position, playerPos) <= minDistanceToInstantJumpScare) + "</color>");
+        if (Vector3.Distance(transform.position, playerPos) <= minDistanceToInstantJumpScare && !enemy.IsTargetBehindObstacle())
+        {
+            JumpScareActivationProcess();
+            StopAllCoroutines();
         }
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5400952286654570970}
   - component: {fileID: 1452877488}
   - component: {fileID: 1452877485}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SchoolLocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: schoolLocker
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9387b4ae7830e8458a8344bb87b94a6, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9387b4ae7830e8458a8344bb87b94a6, type: 3}
 --- !u!4 &69517778582158130 stripped
@@ -260,6 +264,10 @@ PrefabInstance:
       value: schoolLocker-DoorLeft
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 53378338badaf5546bc50ebe1e480687, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53378338badaf5546bc50ebe1e480687, type: 3}
       propertyPath: m_TagString
       value: SchoolLockerDoor
       objectReference: {fileID: 0}
@@ -350,6 +358,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f41c149fc28ccf43a457259ec54d81a, type: 3}
       propertyPath: m_Name
       value: schoolLocker-DoorRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f41c149fc28ccf43a457259ec54d81a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f41c149fc28ccf43a457259ec54d81a, type: 3}
       propertyPath: m_TagString

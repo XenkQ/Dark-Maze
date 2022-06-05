@@ -1293,6 +1293,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 273093745241915929}
     m_Modifications:
     - target: {fileID: 845879179135607176, guid: a337c5858e444344e9a2f182afc75168, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 845879179135607176, guid: a337c5858e444344e9a2f182afc75168, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -1341,8 +1345,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3738788535116177067, guid: a337c5858e444344e9a2f182afc75168, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738788535116177067, guid: a337c5858e444344e9a2f182afc75168, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490951990743891431, guid: a337c5858e444344e9a2f182afc75168, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6490951990743891431, guid: a337c5858e444344e9a2f182afc75168, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1351,6 +1363,10 @@ PrefabInstance:
     - target: {fileID: 9063117589329977564, guid: a337c5858e444344e9a2f182afc75168, type: 3}
       propertyPath: m_Name
       value: SchoolLocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063117589329977564, guid: a337c5858e444344e9a2f182afc75168, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9063117589329977564, guid: a337c5858e444344e9a2f182afc75168, type: 3}
       propertyPath: m_StaticEditorFlags
