@@ -41,7 +41,6 @@ public class Enemy1JumpScareMenager : MonoBehaviour
     private IEnumerator WaitForJumpScare()
     {
         isJumpScareActivating = true;
-        Debug.Log("ZARAZ JUMP SCARE");
         yield return new WaitForSeconds(timeHowLongPlayerMustSeeOpponentToActivateJumpScare);
         ActivateJumpScareIfEnemyIsVisibleByCamera();
         isJumpScareActivating = false;
@@ -58,7 +57,6 @@ public class Enemy1JumpScareMenager : MonoBehaviour
     private void JumpScareIfPlayerTooClose()
     {
         Vector3 playerPos = player.transform.position;
-        Debug.Log("<color='yellow'>Mniejszy dystans " + (Vector3.Distance(transform.position, playerPos) <= minDistanceToInstantJumpScare) + "</color>");
         if (Vector3.Distance(transform.position, playerPos) <= minDistanceToInstantJumpScare && !enemy.IsTargetBehindObstacle())
         {
             JumpScareActivationProcess();

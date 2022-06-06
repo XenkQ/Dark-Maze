@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
     [SerializeField] [ColorUsage(true)] private Color32 hoveredFontColor;
 
     [Header("Canvases")]
-    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject settingsMenuContent;
     [SerializeField] private GameObject mainMenu;
 
     [Header("Other Scripts")]
@@ -42,6 +42,23 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
                 Exit();
                 break;
         }
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ToOptions()
+    {
+        ResetAllTextColors();
+        mainMenu.SetActive(false);
+        settingsMenuContent.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     public void OnButtonEnter(Button button)
@@ -71,22 +88,5 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
     private void ResetAllTextColors()
     {
         uIControlsVisualEffects.ResetAllTextColors(new TextMeshProUGUI[] { playText, optionsText, exitText}, standardFontColor);
-    }
-
-    public void Play()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void ToOptions()
-    {
-        ResetAllTextColors();
-        mainMenu.SetActive(false);
-        settingsMenu.SetActive(true);
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
     }
 }
