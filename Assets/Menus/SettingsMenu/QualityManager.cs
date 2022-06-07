@@ -11,15 +11,10 @@ public class QualityManager : MonoBehaviour
 
     private void Awake()
     {
-        //SetQualitySettingsOnStart();
+        SetQualitySettings();
     }
 
-    private void OnEnable()
-    {
-        SetQualitySettingsOnStart();
-    }
-
-    private void SetQualitySettingsOnStart()
+    private void SetQualitySettings()
     {
         ChangeQualityDropDownValue(qualityIndex);
         SetQuality(qualityIndex);

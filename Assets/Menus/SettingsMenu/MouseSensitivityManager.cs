@@ -12,15 +12,10 @@ public class MouseSensitivityManager : MonoBehaviour
 
     private void Awake()
     {
-        //SetMouseSettingsOnStart();
+        SetMouseSettings();
     }
 
-    private void OnEnable()
-    {
-        SetMouseSettingsOnStart();
-    }
-
-    private void SetMouseSettingsOnStart()
+    private void SetMouseSettings()
     {
         sensitivitySlider.value = mouseSensitivityValue;
         OnSensitivityChange();

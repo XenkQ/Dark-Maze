@@ -6,12 +6,8 @@ using System.IO;
 public class SettingSaveManager : MonoBehaviour
 {
     private string settingsFilePath;
+    private string directoryPath;
 
-    private void Awake()
-    {
-        settingsFilePath = Application.dataPath + "/Saving/settingsFile.json";
-        SetSettingsData();
-    }
     private class SettingsData
     {
         public int mouseSensitivityValue;
@@ -23,11 +19,35 @@ public class SettingSaveManager : MonoBehaviour
         public bool fullScreen;
     }
 
-    public void SetSettingsData()
+    private void Awake()
+    {
+        settingsFilePath = Application.dataPath + "/Saving/settingsFile.json";
+        directoryPath = Application.dataPath + "/Saving";
+        CreateSaveDirectoryIfNotExists();
+        SetSettingsDataProcess();
+    }
+
+    private void CreateSaveDirectoryIfNotExists()
+    {
+        if (!IsSaveDirectoryExist())
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
+    }
+
+    public void SetSettingsDataProcess()
     {
         if (IsSettingsFileExists())
         {
-            string jason = File.ReadAllText(settingsFilePath);
+            SetSettings();
+        }
+    }
+
+    private void SetSettings()
+    {
+        string jason = File.ReadAllText(settingsFilePath);
+        if (jason.Length != 0)
+        {
             SettingsData loadedSettingsData = JsonUtility.FromJson<SettingsData>(jason);
             MouseSensitivityManager.mouseSensitivityValue = loadedSettingsData.mouseSensitivityValue;
             VolumeManager.volumeValue = loadedSettingsData.volumeValue;
@@ -58,13 +78,11 @@ public class SettingSaveManager : MonoBehaviour
 
     private bool IsSettingsFileExists()
     {
-        if (File.Exists(settingsFilePath))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return File.Exists(settingsFilePath);
+    }
+
+    private bool IsSaveDirectoryExist()
+    {
+        return Directory.Exists(directoryPath);
     }
 }

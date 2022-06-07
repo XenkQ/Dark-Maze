@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameTimeManager : MonoBehaviour
+public static class GameTimeManager
 {
-    public void PauseGame()
+    public static void PauseGame()
     {
         if(Time.timeScale != 0)
         {
@@ -12,7 +12,7 @@ public class GameTimeManager : MonoBehaviour
         }
     }
 
-    public void UnpauseGame()
+    public static void UnpauseGame()
     {
         if(Time.timeScale == 0)
         {

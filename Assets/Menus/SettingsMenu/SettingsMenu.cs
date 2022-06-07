@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//TODO: CLASS FOR REFACTORING
 public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
 {
     [Header("Text")]
@@ -18,12 +17,12 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
     [SerializeField] [ColorUsage(true)] private Color32 hoveredFontColor;
 
     [Header("Canvases")]
-    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject settingsMenuContent;
     [SerializeField] private GameObject mainMenu;
 
     [Header("Other Scripts")]
-    [SerializeField] SettingSaveManager settingSaveMenager;
-    UIControlsVisualEffects uIControlsVisualEffects = new UIControlsVisualEffects();
+    [SerializeField] private SettingSaveManager settingSaveMenager;
+    private UIControlsVisualEffects uIControlsVisualEffects = new UIControlsVisualEffects();
 
     public void OnButtonClick(Button button)
     {
@@ -66,7 +65,7 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
     public void ToMenu()
     {
         ResetAllTextColors();
-        settingsMenu.SetActive(false);
+        settingsMenuContent.SetActive(false);
         mainMenu.SetActive(true);
     }
 

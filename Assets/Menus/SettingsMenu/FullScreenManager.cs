@@ -10,15 +10,10 @@ public class FullScreenManager : MonoBehaviour
 
     private void Awake()
     {
-        //SettFullScreenSettingsOnStart();
+        SettFullScreenSettings();
     }
 
-    private void OnEnable()
-    {
-        SettFullScreenSettingsOnStart();
-    }
-
-    private void SettFullScreenSettingsOnStart()
+    private void SettFullScreenSettings()
     {
         ChangeFullScreenToggleValue(isFullScreen);
         SetFullScreen(isFullScreen);
