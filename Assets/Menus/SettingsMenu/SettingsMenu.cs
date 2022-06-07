@@ -22,7 +22,7 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
     [SerializeField] private GameObject mainMenu;
 
     [Header("Other Scripts")]
-    [SerializeField] SettingSaveMenager settingSaveMenager;
+    [SerializeField] SettingSaveManager settingSaveMenager;
     UIControlsVisualEffects uIControlsVisualEffects = new UIControlsVisualEffects();
 
     public void OnButtonClick(Button button)

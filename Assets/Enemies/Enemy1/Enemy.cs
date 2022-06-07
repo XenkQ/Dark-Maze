@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Enemy1AnimationsMenager))]
+[RequireComponent(typeof(Enemy1AnimationsManager))]
 public class Enemy : MonoBehaviour
 {
     [Header("Targets")]
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     [Header("Other Scripts")]
-    private Enemy1AnimationsMenager animationsMenager;
+    private Enemy1AnimationsManager animationsMenager;
 
     [Header("Enemy is visible ray")]
     [SerializeField] private LayerMask obstacleMask;
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        animationsMenager = GetComponent<Enemy1AnimationsMenager>();
+        animationsMenager = GetComponent<Enemy1AnimationsManager>();
         playerCamera = player.PlayerCamera;
     }
 

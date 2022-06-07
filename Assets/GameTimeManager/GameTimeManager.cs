@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameTimeMenager : MonoBehaviour
+public class GameTimeManager : MonoBehaviour
 {
     public void PauseGame()
     {

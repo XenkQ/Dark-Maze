@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class QualityMenager : MonoBehaviour
+public class QualityManager : MonoBehaviour
 {
     [Header("Quality")]
     [SerializeField] private TMP_Dropdown qualityDropDown;

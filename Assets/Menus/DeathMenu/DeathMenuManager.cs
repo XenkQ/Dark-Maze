@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathMenuMenager : MonoBehaviour
+public class DeathMenuManager : MonoBehaviour
 {
     private void OnEnable()
     {
-        CursorMenager.UnlockCursor();
+        CursorManager.UnlockCursor();
     }
 
     public void OnTryAgainButtonClick()
     {
         Debug.Log("Click");
-        GameSceneMenager.RestartCurrentScene();
+        GameSceneManager.RestartCurrentScene();
     }
 }

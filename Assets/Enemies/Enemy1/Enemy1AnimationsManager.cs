@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Enemy1AnimationsMenager : MonoBehaviour
+public class Enemy1AnimationsManager : MonoBehaviour
 {
     private Animator animator;
 

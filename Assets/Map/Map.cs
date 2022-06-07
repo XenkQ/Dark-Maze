@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    [SerializeField] private GameTimeMenager gameTimeMenager;
+    [SerializeField] private GameTimeManager gameTimeManager;
     private MeshRenderer meshRenderer;
     private MeshCollider meshCollider;
 
@@ -48,13 +48,13 @@ public class Map : MonoBehaviour
 
     private void ActiveMapDrawMode()
     {
-        gameTimeMenager.PauseGame();
-        CursorMenager.UnlockCursor();
+        gameTimeManager.PauseGame();
+        CursorManager.UnlockCursor();
     }
 
     private void DisableMapDrawMode()
     {
-        gameTimeMenager.UnpauseGame();
-        CursorMenager.LockCursor();
+        gameTimeManager.UnpauseGame();
+        CursorManager.LockCursor();
     }
 }

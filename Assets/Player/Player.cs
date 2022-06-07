@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private AllEnemiesInSceneMenager allEnemiesInSceneMenager;
+    [SerializeField] private AllEnemiesInSceneManager allEnemiesInSceneManager;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject playerModel;
     public Camera PlayerCamera { get { return playerCamera; } }
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     {
         if(playerModel.active == false)
         {
-            allEnemiesInSceneMenager.DisableAllEnemies();
+            allEnemiesInSceneManager.DisableAllEnemies();
         }
     }
 

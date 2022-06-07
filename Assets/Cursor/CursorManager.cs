@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CursorMenager
+public class CursorManager
 {
     public static void UnlockCursor()
     {

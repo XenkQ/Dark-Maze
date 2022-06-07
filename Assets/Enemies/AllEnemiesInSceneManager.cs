@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllEnemiesInSceneMenager : MonoBehaviour
+public class AllEnemiesInSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] allEnemiesFromScene;
 

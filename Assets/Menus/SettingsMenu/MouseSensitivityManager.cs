@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MouseSensitivityMenager : MonoBehaviour
+public class MouseSensitivityManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI sensitivityText;
     [SerializeField] private Slider sensitivitySlider;

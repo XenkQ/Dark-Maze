@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
-public class Enemy1JumpScareMenager : MonoBehaviour
+public class Enemy1JumpScareManager : MonoBehaviour
 {
     [Header("JumpScare Properties")]
     [SerializeField] private float minDistanceToInstantJumpScare = 3f;

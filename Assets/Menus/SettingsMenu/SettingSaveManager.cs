@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class SettingSaveMenager : MonoBehaviour
+public class SettingSaveManager : MonoBehaviour
 {
     private string settingsFilePath;
 
@@ -29,26 +29,26 @@ public class SettingSaveMenager : MonoBehaviour
         {
             string jason = File.ReadAllText(settingsFilePath);
             SettingsData loadedSettingsData = JsonUtility.FromJson<SettingsData>(jason);
-            MouseSensitivityMenager.mouseSensitivityValue = loadedSettingsData.mouseSensitivityValue;
-            VolumeMenager.volumeValue = loadedSettingsData.volumeValue;
-            VolumeMenager.volumeSliderValue = loadedSettingsData.volumeSliderValue;
-            VolumeMenager.volumeTextValue = loadedSettingsData.volumeTextValue;
-            ResolutionMenager.resolutionIndex = loadedSettingsData.resolutionIndex;
-            QualityMenager.qualityIndex = loadedSettingsData.qualityIndex;
-            FullScreenMenager.isFullScreen = loadedSettingsData.fullScreen;
+            MouseSensitivityManager.mouseSensitivityValue = loadedSettingsData.mouseSensitivityValue;
+            VolumeManager.volumeValue = loadedSettingsData.volumeValue;
+            VolumeManager.volumeSliderValue = loadedSettingsData.volumeSliderValue;
+            VolumeManager.volumeTextValue = loadedSettingsData.volumeTextValue;
+            ResolutionManager.resolutionIndex = loadedSettingsData.resolutionIndex;
+            QualityManager.qualityIndex = loadedSettingsData.qualityIndex;
+            FullScreenManager.isFullScreen = loadedSettingsData.fullScreen;
         }
     }
 
     public void SaveSettingsData()
     {
         SettingsData settingsData = new SettingsData();
-        settingsData.mouseSensitivityValue = MouseSensitivityMenager.mouseSensitivityValue;
-        settingsData.volumeValue = VolumeMenager.volumeValue;
-        settingsData.volumeSliderValue = VolumeMenager.volumeValue;
-        settingsData.volumeTextValue = VolumeMenager.volumeTextValue;
-        settingsData.resolutionIndex = ResolutionMenager.resolutionIndex;
-        settingsData.qualityIndex = QualityMenager.qualityIndex;
-        settingsData.fullScreen = FullScreenMenager.isFullScreen;
+        settingsData.mouseSensitivityValue = MouseSensitivityManager.mouseSensitivityValue;
+        settingsData.volumeValue = VolumeManager.volumeValue;
+        settingsData.volumeSliderValue = VolumeManager.volumeValue;
+        settingsData.volumeTextValue = VolumeManager.volumeTextValue;
+        settingsData.resolutionIndex = ResolutionManager.resolutionIndex;
+        settingsData.qualityIndex = QualityManager.qualityIndex;
+        settingsData.fullScreen = FullScreenManager.isFullScreen;
 
         string jason = JsonUtility.ToJson(settingsData);
         Debug.Log(jason);

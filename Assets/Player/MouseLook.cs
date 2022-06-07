@@ -12,7 +12,7 @@ public class MouseLook : MonoBehaviour
     private void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        CursorMenager.LockCursor();
+        CursorManager.LockCursor();
     }
 
     private void Start()

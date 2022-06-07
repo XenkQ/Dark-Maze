@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameSceneMenager
+public class GameSceneManager
 {
     public static void StartFirstLvlScene()
     {

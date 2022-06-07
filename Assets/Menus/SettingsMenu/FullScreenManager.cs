@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FullScreenMenager : MonoBehaviour
+public class FullScreenManager : MonoBehaviour
 {
     [SerializeField] private Toggle fullScreenToggle;
     public static bool isFullScreen;

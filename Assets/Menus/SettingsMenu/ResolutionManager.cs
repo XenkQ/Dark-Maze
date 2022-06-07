@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 
-public class ResolutionMenager : MonoBehaviour
+public class ResolutionManager : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown resolutionDropDown;
     public static int resolutionIndex;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 using TMPro;
 
-public class VolumeMenager : MonoBehaviour
+public class VolumeManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI volumeText;
     [SerializeField] private Slider volumeSlider;
