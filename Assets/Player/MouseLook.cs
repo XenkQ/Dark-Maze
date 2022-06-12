@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     [SerializeField] private float mouseSensitivityMultipler = 100f;
-    public static float mouseSensitivity;
+    public static float mouseSensitivity = 7;
     private Transform playerTransform;
     private float xRotarion = 0f;
 
@@ -15,23 +15,9 @@ public class MouseLook : MonoBehaviour
         CursorManager.LockCursor();
     }
 
-    private void Start()
-    {
-        MouseSensitivityCheck();
-    }
-
     private void Update()
     {
         MoveCamera();
-    }
-
-    //TODO: Maybe change?
-    private static void MouseSensitivityCheck()
-    {
-        if (mouseSensitivity < 1f)
-        {
-            mouseSensitivity = 5f;
-        }
     }
 
     private void MoveCamera()

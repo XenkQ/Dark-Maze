@@ -4,31 +4,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("MovementPlayer")]
+    [SerializeField] private PlayerAudioMenager playerAudioMenager;
     [SerializeField] private float speedMultipler = 0;
+    [SerializeField] private float timeToPlaySongAfterStep = 0.2f;
     private CharacterController controler;
     private Transform playerTransform;
-
-    [Header("Audio")]
-    [SerializeField] private AudioClip[] steps;
-    [SerializeField] private float timeToPlaySongAfterClick = 1;
-    private float buttonTimeIsPressed = 0;
-    private AudioSource audioSource;
-    private AudioClip lastStep;
+    private float timeTheKeyIsPressed = 0;
 
     private void Awake()
     {
         controler = GetComponent<CharacterController>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    private void Start()
-    {
-        lastStep = RandomStep();
     }
 
     private void Update()
+    {
+        MovePlayerWithStepSound();
+    }
+
+    private void MovePlayerWithStepSound()
     {
         MovePlayer();
         PlayStepsSounds();
@@ -45,30 +39,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayStepsSounds()
     {
-        if (Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.S) == false && Input.GetKey(KeyCode.D) == false)
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
         {
-            audioSource.Stop();
-            buttonTimeIsPressed = 0;
+            //audioSource.Stop();
+            timeTheKeyIsPressed = 0;
         }
         else
         {
-            buttonTimeIsPressed += Time.deltaTime;
-            if (!audioSource.isPlaying && buttonTimeIsPressed > timeToPlaySongAfterClick) 
+            timeTheKeyIsPressed += Time.deltaTime;
+            if (timeTheKeyIsPressed > timeToPlaySongAfterStep) 
             {
-                audioSource.PlayOneShot(RandomStep()); 
+                playerAudioMenager.PlayRandomStepSound();
             }
         }
-    }
-
-    private AudioClip RandomStep()
-    {
-        AudioClip step;
-        do
-        {
-            step = steps[Random.Range(0, steps.Length)];
-        }
-        while (lastStep == step);
-        lastStep = step;
-        return step;
     }
 }
