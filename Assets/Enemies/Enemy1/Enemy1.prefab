@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929707010762112217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.37, y: 16.5, z: -91.22}
+  m_LocalPosition: {x: -8.37, y: 16.5, z: -53.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929707011030533941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.9, y: 0.01894259, z: -50.7}
+  m_LocalPosition: {x: 13.1, y: 0.01894259, z: -26.1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -286,6 +286,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2176
   maxDistanceTheOpponentCanBeSeen: 20
+  headCollider: {fileID: 341616315}
+  spineCollider: {fileID: 5667107560536303362}
 --- !u!114 &117456216323461356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +332,7 @@ MonoBehaviour:
   objectsToDisableWhenJumpScare:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 2929707012416095256}
 --- !u!95 &2929707011030533934
 Animator:
   serializedVersion: 4
@@ -980,7 +983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929707012189326379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.3, y: 16.5, z: -41.3}
+  m_LocalPosition: {x: -8.3, y: 16.5, z: -36.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1232,7 +1235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929707012287116236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.6, y: 16.5, z: -62.1}
+  m_LocalPosition: {x: -29.6, y: 16.5, z: -54.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1389,6 +1392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2929707012616577769}
+  - component: {fileID: 341616315}
   m_Layer: 10
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -1412,6 +1416,19 @@ Transform:
   m_Father: {fileID: 2929707011805732372}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -3.1145604, y: -7.55001, z: -1.0312648}
+--- !u!65 &341616315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929707012616577768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.89, y: 3.42, z: 1}
+  m_Center: {x: 0, y: 1.82, z: 0}
 --- !u!1 &2929707012661067936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929707012661067936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.5, y: 16.5, z: -11}
+  m_LocalPosition: {x: -29, y: 16.5, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

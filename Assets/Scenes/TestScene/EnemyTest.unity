@@ -455,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2984968361726869939, guid: 9ea8691f7d2632c4eb99adbcbfe52e97, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2984968361726869941, guid: 9ea8691f7d2632c4eb99adbcbfe52e97, type: 3}
       propertyPath: allEnemiesFromScene.Array.data[0]
@@ -711,10 +711,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1399011445}
     - target: {fileID: 149488950, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: objectsToDisableWhenJumpScare.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 149488950, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: objectsToDisableWhenJumpScare.Array.data[0]
       value: 
       objectReference: {fileID: 892554948}
@@ -722,45 +718,9 @@ PrefabInstance:
       propertyPath: objectsToDisableWhenJumpScare.Array.data[1]
       value: 
       objectReference: {fileID: 1771487283}
-    - target: {fileID: 149488950, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: objectsToDisableWhenJumpScare.Array.data[2]
-      value: 
-      objectReference: {fileID: 1554496889}
-    - target: {fileID: 149488950, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: objectsToDisableWhenJumpScare.Array.data[3]
-      value: 
-      objectReference: {fileID: 1771487283}
-    - target: {fileID: 2929707010762112222, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -53.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707011030533930, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707011030533930, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -26.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707012189326376, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707012287116237, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -29.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707012287116237, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -54.35
-      objectReference: {fileID: 0}
     - target: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_Name
       value: Enemy1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2929707012416095257, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_RootOrder
@@ -805,14 +765,6 @@ PrefabInstance:
     - target: {fileID: 2929707012416095257, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707012661067937, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -29
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929707012661067937, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}

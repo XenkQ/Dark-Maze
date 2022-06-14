@@ -19,13 +19,13 @@ public class Enemy : MonoBehaviour
     private Vector3 currentDestination;
     private Vector3 lastDestination;
 
-    [Header("Enemy - player interactions")]
+    [Header("player interactions")]
     [SerializeField] [Range(1, 25)] private int enemyRadius;
     public int EnemyRadius { get { return enemyRadius; } }
     [SerializeField] private EnemyState enemyState;
     [SerializeField] private float searchingTime;
 
-    [Header("Enemy Compontents")]
+    [Header("Compontents")]
     private NavMeshAgent navMeshAgent;
 
     [Header("Other Scripts")]
@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviour
 
     [Header("Objects")]
     private Camera playerCamera;
+
+    [Header("Colliders")]
+    [SerializeField] private BoxCollider headCollider;
+    [SerializeField] private BoxCollider spineCollider;
 
     private void Awake()
     {
@@ -247,16 +251,12 @@ public class Enemy : MonoBehaviour
     private bool IsCameraTurnedInEnemyDirection()
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
-        Vector2 point = transform.position;
 
-        foreach (var plane in planes)
+        if (GeometryUtility.TestPlanesAABB(planes, spineCollider.bounds) || GeometryUtility.TestPlanesAABB(planes, headCollider.bounds))
         {
-            if (plane.GetDistanceToPoint(point) < 0)
-            {
-                return false;
-            }
+            return true;
         }
 
-        return true;
+        return false;
     }
 }
