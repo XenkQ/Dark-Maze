@@ -1801,14 +1801,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1688389379}
     m_Modifications:
-    - target: {fileID: 4670214517151692868, guid: c3ecf538f0fd4ad4c92efd918454aa47, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670214517151692871, guid: c3ecf538f0fd4ad4c92efd918454aa47, type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4670214517151692871, guid: c3ecf538f0fd4ad4c92efd918454aa47, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1824,10 +1816,6 @@ PrefabInstance:
     - target: {fileID: 4670214517477701222, guid: c3ecf538f0fd4ad4c92efd918454aa47, type: 3}
       propertyPath: m_Name
       value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670214517477701222, guid: c3ecf538f0fd4ad4c92efd918454aa47, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4670214517477701223, guid: c3ecf538f0fd4ad4c92efd918454aa47, type: 3}
       propertyPath: m_Pivot.x

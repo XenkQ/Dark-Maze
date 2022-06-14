@@ -2257,14 +2257,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7901959238632668419}
     m_Modifications:
-    - target: {fileID: 1175565034897621609, guid: a969e8a64af378e4885130da6469df0b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 3839
-      objectReference: {fileID: 0}
     - target: {fileID: 1175565034897621611, guid: a969e8a64af378e4885130da6469df0b, type: 3}
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 1175565034897621612, guid: a969e8a64af378e4885130da6469df0b, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 8377233855898920974}
     - target: {fileID: 1175565034897621614, guid: a969e8a64af378e4885130da6469df0b, type: 3}
       propertyPath: m_RootOrder
       value: 0

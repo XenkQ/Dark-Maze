@@ -25,7 +25,7 @@ public class Map : MonoBehaviour
     {
         SwitchMapVisibility();
 
-        if (IsMapVisible())
+        if (IsVisible())
         {
             ActiveMapDrawMode();
         }
@@ -40,7 +40,7 @@ public class Map : MonoBehaviour
         meshCollider.enabled = !meshCollider.enabled;
     }
 
-    public bool IsMapVisible()
+    public bool IsVisible()
     {
         return meshRenderer.enabled;
     }

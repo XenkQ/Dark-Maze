@@ -32,7 +32,7 @@ public class DrawManager : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, rayMaxDistance, mapLayerMask) && map.IsMapVisible())
+        if (Physics.Raycast(ray, out hit, rayMaxDistance, mapLayerMask) && map.IsVisible())
         {
             if (Input.GetMouseButtonDown(0))
             {

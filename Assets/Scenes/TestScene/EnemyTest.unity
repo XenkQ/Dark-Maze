@@ -644,10 +644,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7901959238632668418, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: timeToPlaySongAfterStep
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7901959238632668419, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_RootOrder
       value: 2
