@@ -6,6 +6,7 @@ using UnityEngine;
 public class Line : MonoBehaviour
 {
     [SerializeField] private LineRenderer _renderer;
+    public bool blockLine = false;
 
     public void SetPosition(Vector3 pos)
     {
@@ -20,6 +21,6 @@ public class Line : MonoBehaviour
     {
         if(_renderer.positionCount == 0) {return true;}
         
-        return Vector3.Distance(_renderer.GetPosition(_renderer.positionCount-1),pos) > DrawManager.RESOLUTION;
+        return Vector3.Distance(_renderer.GetPosition(_renderer.positionCount-1),pos) > DrawManager.RESOLUTION && blockLine == false;
     }
 }

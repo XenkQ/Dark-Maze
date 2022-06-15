@@ -8,6 +8,7 @@ TagManager:
   - SchoolLockerDoor
   - UnkillablePlayer
   - Enemy
+  - Map
   layers:
   - Default
   - TransparentFX

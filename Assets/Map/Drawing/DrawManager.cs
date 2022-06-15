@@ -5,7 +5,7 @@ using UnityEngine;
 public class DrawManager : MonoBehaviour
 {
     [Header("Draw Properties")]
-    [SerializeField][Range(0.01f, 0.9f)] private float lineZOffset = 0.01f;
+    [SerializeField] [Range(0.01f, 0.9f)] private float lineZOffset = 0.01f;
     public const float RESOLUTION = 0.01f;
 
     [Header("Line Prefabs")]
@@ -13,7 +13,7 @@ public class DrawManager : MonoBehaviour
     private Line currentLine;
 
     [Header("Other Components")]
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera mapCamera;
 
     [Header("Ray Properties")]
     [SerializeField] private float rayMaxDistance = 5f;
@@ -29,7 +29,7 @@ public class DrawManager : MonoBehaviour
 
     private void DrawingProcess()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mapCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, mapLayerMask) && map.IsVisible())
@@ -42,7 +42,13 @@ public class DrawManager : MonoBehaviour
             else if (Input.GetMouseButton(0))
             {
                 //TODO: make if pointer exit from map stop working
+                Debug.Log("<color='green'>" + (hit.transform.tag) + "</color>");
+                Debug.Log("<color='yellow'>" + hit.transform + "</color>");
                 currentLine.SetPosition(map.transform.InverseTransformPoint(hit.point) * map.transform.localScale.x);
+            }
+            if (hit.transform.tag == "Map")
+            {
+                currentLine.blockLine = true;
             }
         }
     }
@@ -52,7 +58,7 @@ public class DrawManager : MonoBehaviour
         currentLine = Instantiate(linePrefab, map.transform.position, transform.rotation, transform);
     }
 
-    private void ChangeCurrentLineZOffset(Transform currentLine,float zOffset)
+    private void ChangeCurrentLineZOffset(Transform currentLine, float zOffset)
     {
         currentLine.transform.localPosition = new Vector3(
             currentLine.transform.localPosition.x,
