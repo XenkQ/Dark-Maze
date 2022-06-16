@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FullScreenManager : MonoBehaviour
 {
     [SerializeField] private Toggle fullScreenToggle;
-    public static bool isFullScreen;
+    public static bool isFullScreen = true;
 
     private void Awake()
     {
