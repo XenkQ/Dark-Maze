@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
                 break;
 
             case "ExitButton":
-                Exit();
+                ApplicationManager.ExitApplication();
                 break;
         }
     }
@@ -54,11 +54,6 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
         ResetAllTextColors();
         mainMenu.SetActive(false);
         settingsMenuContent.SetActive(true);
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
     }
 
     public void OnButtonEnter(Button button)

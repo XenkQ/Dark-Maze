@@ -11,7 +11,6 @@ public class DeathMenuManager : MonoBehaviour
 
     public void OnTryAgainButtonClick()
     {
-        Debug.Log("Click");
         GameSceneManager.RestartCurrentScene();
     }
 }
