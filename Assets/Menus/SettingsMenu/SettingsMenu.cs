@@ -18,7 +18,7 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
 
     [Header("Canvases")]
     [SerializeField] private GameObject settingsMenuContent;
-    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject backToMenuContent;
 
     [Header("Other Scripts")]
     [SerializeField] private SettingSaveManager settingSaveMenager;
@@ -66,7 +66,7 @@ public class SettingsMenu : MonoBehaviour, IMenuButtonEvents
     {
         ResetAllTextColors();
         settingsMenuContent.SetActive(false);
-        mainMenu.SetActive(true);
+        backToMenuContent.SetActive(true);
     }
 
     private void ResetAllTextColors()

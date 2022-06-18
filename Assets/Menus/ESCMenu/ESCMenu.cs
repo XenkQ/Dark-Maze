@@ -12,20 +12,20 @@ public class ESCMenu : MonoBehaviour
     {
         if (CanActiveESCMenu())
         {
-            ESCMenuActivationProcess();
+            ESCMenuActivationWithPausingGameProcess();
         }
         else if (CanDisableESCMenu())
         {
-            DisableESCMenuProcess();
+            DisableESCMenuWithUnpausingGameProcess();
         }
     }
 
     private bool CanActiveESCMenu()
     {
-        return Input.GetKeyDown(KeyCode.Escape) && content.active == false;
+        return Input.GetKeyDown(KeyCode.Escape) && content.active == false && settingsMenuContent.active == false;
     }
 
-    private void ESCMenuActivationProcess()
+    private void ESCMenuActivationWithPausingGameProcess()
     {
         GameTimeManager.PauseGame();
         content.SetActive(true);
@@ -37,17 +37,22 @@ public class ESCMenu : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Escape) && content.active == true;
     }
 
-    private void DisableESCMenuProcess()
+    private void DisableESCMenuWithUnpausingGameProcess()
     {
         GameTimeManager.UnpauseGame();
-        content.SetActive(false);
+        DisableESCMenu();
         CursorManager.LockCursor();
+    }
+
+    private void DisableESCMenu()
+    {
+        content.SetActive(false);
     }
 
     public void OnSettingsButtonClick()
     {
         settingsMenuContent.SetActive(true);
-        DisableESCMenuProcess();
+        DisableESCMenu();
     }
 
     public void OnExitButtonClick()

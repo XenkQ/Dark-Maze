@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6e4ad19d39fd24cba2f6e045506f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsMenu: {fileID: 0}
+  settingsMenuContent: {fileID: 0}
   content: {fileID: 5947804003041827803}
 --- !u!1 &2023227470062697657
 GameObject:
@@ -798,7 +798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8274822668839228357}
   m_Layer: 5
-  m_Name: Content
+  m_Name: ESCMenuContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
