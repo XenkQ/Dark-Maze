@@ -2,11 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ESCMenu : MonoBehaviour
 {
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI toSettingsText;
+    [SerializeField] private TextMeshProUGUI exitText;
+
+    [Header("Contents of menus")]
     [SerializeField] private GameObject settingsMenuContent;
     [SerializeField] private GameObject content;
+
+    [Header("Other Scripts")]
+    [SerializeField] private TextInteractionsEffects textInteractionsEffects;
 
     private void Update()
     {
@@ -39,6 +48,7 @@ public class ESCMenu : MonoBehaviour
 
     private void DisableESCMenuWithUnpausingGameProcess()
     {
+        ResetAllTextColors();
         GameTimeManager.UnpauseGame();
         DisableESCMenu();
         CursorManager.LockCursor();
@@ -51,8 +61,14 @@ public class ESCMenu : MonoBehaviour
 
     public void OnSettingsButtonClick()
     {
+        ResetAllTextColors();
         settingsMenuContent.SetActive(true);
         DisableESCMenu();
+    }
+
+    private void ResetAllTextColors()
+    {
+        textInteractionsEffects.ResetAllTextColors(new TextMeshProUGUI[] { toSettingsText, exitText }, textInteractionsEffects.DeafultColor);
     }
 
     public void OnExitButtonClick()

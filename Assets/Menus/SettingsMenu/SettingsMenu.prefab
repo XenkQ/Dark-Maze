@@ -517,13 +517,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 886594839526271654}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonEnter
+        - m_Target: {fileID: 7816557153139043599}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 886594839059617759}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 886594840185055641}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -533,13 +533,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 886594839526271654}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonExit
+        - m_Target: {fileID: 7816557153139043599}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 886594839059617759}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 886594840185055641}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -578,10 +578,10 @@ RectTransform:
   m_Father: {fileID: 886594840868176325}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975.9, y: -950}
+  m_SizeDelta: {x: 1751.8, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &886594839087163122
 GameObject:
@@ -618,10 +618,10 @@ RectTransform:
   m_Father: {fileID: 886594840868176325}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975.9, y: -410}
+  m_SizeDelta: {x: 1751.8, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &886594839087163121
 CanvasRenderer:
@@ -1417,7 +1417,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.42857143, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1474,7 +1474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &886594839440006230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1632,6 +1632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886594839526271673}
   - component: {fileID: 886594839526271654}
+  - component: {fileID: 7816557153139043599}
   - component: {fileID: 886594839526271648}
   - component: {fileID: 886594839526271653}
   - component: {fileID: 886594839526271650}
@@ -1680,17 +1681,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButtonText: {fileID: 886594840185055641}
   saveButtonText: {fileID: 886594840008946990}
-  standardFontSize: 80
-  hoveredFontSize: 83
-  standardFontColor:
-    serializedVersion: 2
-    rgba: 4293322473
-  hoveredFontColor:
-    serializedVersion: 2
-    rgba: 4279966691
   settingsMenuContent: {fileID: 886594839440006249}
   backToMenuContent: {fileID: 0}
   settingSaveMenager: {fileID: 886594839526271648}
+  textInteractionsEffects: {fileID: 7816557153139043599}
+--- !u!114 &7816557153139043599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886594839526271672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b930df8267fa84fbe66774f717d05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deafultColor:
+    serializedVersion: 2
+    rgba: 4293322473
+  interactionColor:
+    serializedVersion: 2
+    rgba: 4279966691
+  deafultTextSize: 80
+  textSizeAfterInteraction: 83
 --- !u!114 &886594839526271648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,8 +2128,8 @@ RectTransform:
   m_Father: {fileID: 886594839222871709}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.42857143, y: 0}
+  m_AnchorMax: {x: 0.42857143, y: 1}
   m_AnchoredPosition: {x: -3.8999786, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2574,7 +2588,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2651,10 +2665,10 @@ RectTransform:
   m_Father: {fileID: 886594840868176325}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975.9, y: -770}
+  m_SizeDelta: {x: 1751.8, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &886594840164230261
 CanvasRenderer:
@@ -3478,7 +3492,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 15
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3680,10 +3694,10 @@ RectTransform:
   m_Father: {fileID: 886594840868176325}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975.9, y: -590}
+  m_SizeDelta: {x: 1751.8, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &886594840411933422
 CanvasRenderer:
@@ -4819,13 +4833,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 886594839526271654}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonEnter
+        - m_Target: {fileID: 7816557153139043599}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 886594840703678526}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 886594840008946990}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4835,13 +4849,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 886594839526271654}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonExit
+        - m_Target: {fileID: 7816557153139043599}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 886594840703678526}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 886594840008946990}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4880,8 +4894,8 @@ RectTransform:
   m_Father: {fileID: 886594840344136813}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.899971, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5034,10 +5048,10 @@ RectTransform:
   m_Father: {fileID: 886594840868176325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975.9, y: -230}
+  m_SizeDelta: {x: 1751.8, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &886594840876277688
 CanvasRenderer:

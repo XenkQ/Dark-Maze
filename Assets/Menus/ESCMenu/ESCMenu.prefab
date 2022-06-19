@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2023227469579906255}
   - component: {fileID: 2023227469579906252}
   - component: {fileID: 2023227469579906254}
+  - component: {fileID: 3531852998174439676}
   m_Layer: 5
   m_Name: ToSettingsButton
   m_TagString: Untagged
@@ -91,10 +92,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2023227470054714309}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1329988033274017801}
+        m_TargetAssemblyTypeName: ESCMenu, Assembly-CSharp
+        m_MethodName: OnSettingsButtonClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -103,18 +104,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+--- !u!114 &3531852998174439676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023227469579906240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023227469947544089}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2023227469968397972}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023227469947544089}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2023227469968397972}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2023227469902324535
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2023227470054714308}
   - component: {fileID: 1329988033274017801}
+  - component: {fileID: 2023227469947544089}
   m_Layer: 5
   m_Name: ESCMenu
   m_TagString: Untagged
@@ -337,8 +372,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6e4ad19d39fd24cba2f6e045506f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toSettingsText: {fileID: 2023227469968397972}
+  exitText: {fileID: 2023227470094809370}
   settingsMenuContent: {fileID: 0}
   content: {fileID: 5947804003041827803}
+  textInteractionsEffects: {fileID: 2023227469947544089}
+--- !u!114 &2023227469947544089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023227470054714309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b930df8267fa84fbe66774f717d05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deafultColor:
+    serializedVersion: 2
+    rgba: 4291940817
+  interactionColor:
+    serializedVersion: 2
+    rgba: 4279966691
+  deafultTextSize: 110
+  textSizeAfterInteraction: 113
 --- !u!1 &2023227470062697657
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +408,7 @@ GameObject:
   - component: {fileID: 2023227470062697656}
   - component: {fileID: 2023227470062697637}
   - component: {fileID: 2023227470062697639}
+  - component: {fileID: 2642134373685506577}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -430,9 +489,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DeathMenuMenager, Assembly-CSharp
-        m_MethodName: OnTryAgainButtonClick
+      - m_Target: {fileID: 1329988033274017801}
+        m_TargetAssemblyTypeName: ESCMenu, Assembly-CSharp
+        m_MethodName: OnExitButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -442,6 +501,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2642134373685506577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023227470062697657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023227469947544089}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2023227470094809370}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2023227469947544089}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2023227470094809370}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2023227470094809372
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,8 +756,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291940817
-  m_fontColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:

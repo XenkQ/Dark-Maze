@@ -190,8 +190,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293322473
-  m_fontColor: {r: 0.9137255, g: 0.9019608, b: 0.9019608, a: 1}
+    rgba: 4289111718
+  m_fontColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -260,8 +260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3175122557368534364}
   - component: {fileID: 3175122557368534367}
-  - component: {fileID: 3175122557368534366}
   - component: {fileID: 3175122557368534365}
+  - component: {fileID: 3175122558279019031}
   m_Layer: 5
   m_Name: TryAgainButton
   m_TagString: Untagged
@@ -298,36 +298,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3175122557368534355}
   m_CullTransparentMesh: 1
---- !u!114 &3175122557368534366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175122557368534355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &3175122557368534365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,12 +338,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3175122557368534366}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DeathMenuMenager, Assembly-CSharp
+      - m_Target: {fileID: 7876036578478802794}
+        m_TargetAssemblyTypeName: DeathMenuManager, Assembly-CSharp
         m_MethodName: OnTryAgainButtonClick
         m_Mode: 1
         m_Arguments:
@@ -384,6 +354,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3175122558279019031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175122557368534355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3175122558279019030}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 3175122556632618783}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3175122558279019030}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 3175122556632618783}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3175122557765437627
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,13 +409,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3175122557765437604}
   - component: {fileID: 7876036578478802794}
+  - component: {fileID: 3175122558279019030}
   m_Layer: 5
   m_Name: DeathMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3175122557765437604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -434,6 +450,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eee88c3c0e007a40901f00c847eeaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3175122558279019030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175122557765437627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b930df8267fa84fbe66774f717d05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deafultColor:
+    serializedVersion: 2
+    rgba: 4291940817
+  interactionColor:
+    serializedVersion: 2
+    rgba: 4279966691
+  deafultTextSize: 110
+  textSizeAfterInteraction: 113
 --- !u!1 &3175122558358157848
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DEATH IN NOT THE END
+  m_text: DEATH IS NOT THE END
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c0c2769df325984598b345d32b00cf2, type: 2}
   m_sharedMaterial: {fileID: -1307982060755744695, guid: 4c0c2769df325984598b345d32b00cf2, type: 2}
@@ -509,8 +545,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279966691
-  m_fontColor: {r: 0.8901961, g: 0.105882354, b: 0.105882354, a: 1}
+    rgba: 4291940817
+  m_fontColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -228,13 +228,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4298721007970868222}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonEnter
+        - m_Target: {fileID: 7937033684562681975}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4298721007237293703}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 4298721008394180801}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -244,13 +244,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4298721007970868222}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonExit
+        - m_Target: {fileID: 7937033684562681975}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4298721007237293703}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 4298721008394180801}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1653,6 +1653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4298721007970868193}
   - component: {fileID: 4298721007970868222}
+  - component: {fileID: 7937033684562681975}
   - component: {fileID: 4298721007970868216}
   - component: {fileID: 4298721007970868221}
   - component: {fileID: 4298721007970868218}
@@ -1701,17 +1702,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButtonText: {fileID: 4298721008394180801}
   saveButtonText: {fileID: 4298721008486564982}
-  standardFontSize: 80
-  hoveredFontSize: 83
-  standardFontColor:
-    serializedVersion: 2
-    rgba: 4293322473
-  hoveredFontColor:
-    serializedVersion: 2
-    rgba: 4279966691
   settingsMenuContent: {fileID: 4298721007921835313}
   backToMenuContent: {fileID: 0}
   settingSaveMenager: {fileID: 4298721007970868216}
+  textInteractionsEffects: {fileID: 7937033684562681975}
+--- !u!114 &7937033684562681975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298721007970868192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b930df8267fa84fbe66774f717d05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deafultColor:
+    serializedVersion: 2
+    rgba: 4293322473
+  interactionColor:
+    serializedVersion: 2
+    rgba: 4279966691
+  deafultTextSize: 80
+  textSizeAfterInteraction: 83
 --- !u!114 &4298721007970868216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4192,13 +4206,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4298721007970868222}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonEnter
+        - m_Target: {fileID: 7937033684562681975}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextEnterEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4298721008881404262}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 4298721008486564982}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4208,13 +4222,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4298721007970868222}
-          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-          m_MethodName: OnButtonExit
+        - m_Target: {fileID: 7937033684562681975}
+          m_TargetAssemblyTypeName: TextInteractionsEffects, Assembly-CSharp
+          m_MethodName: OnTextExitEffect
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4298721008881404262}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 4298721008486564982}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

@@ -6,25 +6,19 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-public class MainMenu : MonoBehaviour, IMenuButtonEvents
+public class MainMenu : MonoBehaviour
 {
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI playText;
     [SerializeField] private TextMeshProUGUI optionsText;
     [SerializeField] private TextMeshProUGUI exitText;
 
-    [Header("Font")]
-    [SerializeField] private int standardFontSize = 15;
-    [SerializeField] private int hoveredFontSize = 18;
-    [SerializeField] [ColorUsage(true)] private Color32 standardFontColor;
-    [SerializeField] [ColorUsage(true)] private Color32 hoveredFontColor;
-
     [Header("Canvases")]
     [SerializeField] private GameObject settingsMenuContent;
     [SerializeField] private GameObject mainMenu;
 
     [Header("Other Scripts")]
-    UIControlsVisualEffects uIControlsVisualEffects = new UIControlsVisualEffects();
+    [SerializeField] private TextInteractionsEffects textInteractionsEffects;
 
     public void OnButtonClick(Button button)
     {
@@ -35,7 +29,7 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
                 break;
 
             case "OptionsButton":
-                ToOptions();
+                ToSettingsMenu();
                 break;
 
             case "ExitButton":
@@ -44,44 +38,20 @@ public class MainMenu : MonoBehaviour, IMenuButtonEvents
         }
     }
 
-    public void Play()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void ToOptions()
+    private void ToSettingsMenu()
     {
         ResetAllTextColors();
         mainMenu.SetActive(false);
         settingsMenuContent.SetActive(true);
     }
 
-    public void OnButtonEnter(Button button)
-    {
-        FontHoveredEffect(button);
-    }
-
-    public void OnButtonExit(Button button)
-    {
-        FontExitEffect(button);
-    }
-
-    private void FontHoveredEffect(Button button)
-    {
-        TextMeshProUGUI text = button.transform.GetComponentInChildren<TextMeshProUGUI>();
-        uIControlsVisualEffects.ChangeFontSize(text, hoveredFontSize);
-        uIControlsVisualEffects.ChangeFontColor(text, hoveredFontColor);
-    }
-
-    private void FontExitEffect(Button button)
-    {
-        TextMeshProUGUI text = button.transform.GetComponentInChildren<TextMeshProUGUI>();
-        uIControlsVisualEffects.ChangeFontSize(text, standardFontSize);
-        uIControlsVisualEffects.ChangeFontColor(text, standardFontColor);
-    }
-
     private void ResetAllTextColors()
     {
-        uIControlsVisualEffects.ResetAllTextColors(new TextMeshProUGUI[] { playText, optionsText, exitText}, standardFontColor);
+        textInteractionsEffects.ResetAllTextColors(new TextMeshProUGUI[] { playText, optionsText, exitText }, textInteractionsEffects.DeafultColor);
+    }
+
+    private void Play()
+    {
+        SceneManager.LoadScene(1);
     }
 }

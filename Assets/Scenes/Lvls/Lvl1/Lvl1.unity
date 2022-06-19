@@ -154,17 +154,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2023227470054714308, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
   m_PrefabInstance: {fileID: 2023227469947544087}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &174410196 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1329988033274017801, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-  m_PrefabInstance: {fileID: 2023227469947544087}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6e4ad19d39fd24cba2f6e045506f3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &561816240 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3175122557765437604, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
@@ -290,17 +279,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
   m_PrefabInstance: {fileID: 2929707010766756378}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &858865063 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7876036578478802794, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-  m_PrefabInstance: {fileID: 3175122558279019028}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eee88c3c0e007a40901f00c847eeaee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1071736649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5947804003041827803, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
@@ -741,25 +719,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08871162df615384daad4c1ba9b566f7, type: 3}
---- !u!114 &886594840963368551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4298721007970868222, guid: 58e16d76f89d31940bad729577ad6de7, type: 3}
-  m_PrefabInstance: {fileID: 4027852715715206553}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886594840963368569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbafcf4490e52b45a2ed39a036391af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &886594840963368568 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4298721007970868193, guid: 58e16d76f89d31940bad729577ad6de7, type: 3}
-  m_PrefabInstance: {fileID: 4027852715715206553}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &886594840963368569 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4298721007970868192, guid: 58e16d76f89d31940bad729577ad6de7, type: 3}
   m_PrefabInstance: {fileID: 4027852715715206553}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &886594841016578216 stripped
@@ -775,45 +737,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1819053323}
     m_Modifications:
     - target: {fileID: 1329988033274017801, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: settingsMenu
-      value: 
-      objectReference: {fileID: 886594840963368551}
-    - target: {fileID: 1329988033274017801, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
       propertyPath: settingsMenuContent
       value: 
       objectReference: {fileID: 886594841016578216}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 174410196}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 886594840963368569}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSettingsButtonClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ESCMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227469579906254, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2023227470054714308, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -901,38 +827,6 @@ PrefabInstance:
     - target: {fileID: 2023227470054714309, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
       propertyPath: m_Name
       value: ESCMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227470062697639, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 174410196}
-    - target: {fileID: 2023227470062697639, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnExitButtonClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227470062697639, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ESCMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227470594423911, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227470594423911, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227470594423911, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023227470594423911, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 5947804003041827803, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
@@ -1101,34 +995,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1819053323}
     m_Modifications:
-    - target: {fileID: 3175122556632618783, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122556632618783, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122556632618783, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122556632618783, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4289111718
-      objectReference: {fileID: 0}
     - target: {fileID: 3175122557368534365, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 858865063}
-    - target: {fileID: 3175122557368534365, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnTryAgainButtonClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122557368534365, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DeathMenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3175122557368534366, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
     - target: {fileID: 3175122557765437604, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1217,32 +1087,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 3175122557765437627, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122558358157850, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_text
-      value: DEATH IS NOT THE END
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122558358157850, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.8207547
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122558358157850, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.8207547
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122558358157850, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.8207547
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175122558358157850, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4291940817
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3175122557368534366, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18936a16f30bebe4e95e11d6a458e1a1, type: 3}
 --- !u!1001 &4027852715715206553
 PrefabInstance:
