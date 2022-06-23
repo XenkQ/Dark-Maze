@@ -13,7 +13,6 @@ public class SettingSaveManager : MonoBehaviour
         public int mouseSensitivityValue;
         public float volumeValue;
         public float volumeSliderValue;
-        public float volumeTextValue;
         public int resolutionIndex;
         public int qualityIndex;
         public bool fullScreen;
@@ -52,7 +51,6 @@ public class SettingSaveManager : MonoBehaviour
             MouseSensitivityManager.mouseSensitivityValue = loadedSettingsData.mouseSensitivityValue;
             VolumeManager.volumeValue = loadedSettingsData.volumeValue;
             VolumeManager.volumeSliderValue = loadedSettingsData.volumeSliderValue;
-            VolumeManager.volumeTextValue = loadedSettingsData.volumeTextValue;
             ResolutionManager.resolutionIndex = loadedSettingsData.resolutionIndex;
             QualityManager.qualityIndex = loadedSettingsData.qualityIndex;
             FullScreenManager.isFullScreen = loadedSettingsData.fullScreen;
@@ -64,8 +62,7 @@ public class SettingSaveManager : MonoBehaviour
         SettingsData settingsData = new SettingsData();
         settingsData.mouseSensitivityValue = MouseSensitivityManager.mouseSensitivityValue;
         settingsData.volumeValue = VolumeManager.volumeValue;
-        settingsData.volumeSliderValue = VolumeManager.volumeValue;
-        settingsData.volumeTextValue = VolumeManager.volumeTextValue;
+        settingsData.volumeSliderValue = VolumeManager.volumeSliderValue;
         settingsData.resolutionIndex = ResolutionManager.resolutionIndex;
         settingsData.qualityIndex = QualityManager.qualityIndex;
         settingsData.fullScreen = FullScreenManager.isFullScreen;

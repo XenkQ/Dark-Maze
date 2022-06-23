@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using TMPro;
+using System;
 
 public class VolumeManager : MonoBehaviour
 {
@@ -11,22 +12,43 @@ public class VolumeManager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioMixer audioMixer;
     public static float volumeValue;
-    public static float volumeTextValue;
     public static float volumeSliderValue;
+
+    private void Awake()
+    {
+        SetSliderValueBasedOnVolumeSliderValue();
+    }
+
+    private void Start()
+    {
+        ChangeVolumeSliderProperties();
+    }
+
+    private void SetSliderValueBasedOnVolumeSliderValue()
+    {
+        volumeSlider.value = volumeSliderValue;
+    }
+
+    private void ChangeVolumeSliderProperties()
+    {
+        SetVolumeValueBasedOnSliderValue();
+        SetVolumeTextBasedOnVolumeValue();
+    }
+
+    private void SetVolumeValueBasedOnSliderValue()
+    {
+        volumeValue = Mathf.Log10(volumeSliderValue) * 20;
+        audioMixer.SetFloat("volume", volumeValue);
+    }
+
+    private void SetVolumeTextBasedOnVolumeValue()
+    {
+        volumeText.text = ((int)(volumeSliderValue * 100)).ToString();
+    }
 
     public void OnVolumeChange()
     {
-        float value = volumeSlider.value;
-        volumeSliderValue = value;
-        volumeText.text = Mathf.Round(value * 100).ToString();
-        volumeTextValue = int.Parse(volumeText.text);
-        value = Mathf.Log10(value) * 20;
-        volumeValue = value;
-        SetVolume(value);
-    }
-
-    public void SetVolume(float volumeValue)
-    {
-        audioMixer.SetFloat("volume", volumeValue);
+        volumeSliderValue = volumeSlider.value;
+        ChangeVolumeSliderProperties();
     }
 }

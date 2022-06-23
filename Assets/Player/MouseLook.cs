@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] private float mouseSensitivityMultipler = 0.5f;
-    public static float mouseSensitivity = 7;
-    private Transform playerTransform;
     private float xRotarion = 0f;
+    private Transform playerTransform;
     [SerializeField] private Map map;
 
     private void Awake()
@@ -27,8 +22,8 @@ public class MouseLook : MonoBehaviour
 
     private void MoveCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * mouseSensitivityMultipler;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * mouseSensitivityMultipler;
+        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivityManager.mouseSensitivityValue * MouseSensitivityManager.MOUSE_SENSITIVITY_MULTIPLER;
+        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivityManager.mouseSensitivityValue * MouseSensitivityManager.MOUSE_SENSITIVITY_MULTIPLER;
 
         xRotarion -= mouseY;
         xRotarion = Mathf.Clamp(xRotarion, -90f, 90f);

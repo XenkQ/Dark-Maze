@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,7 +6,8 @@ public class MouseSensitivityManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI sensitivityText;
     [SerializeField] private Slider sensitivitySlider;
-    public static int mouseSensitivityValue;
+    public const float MOUSE_SENSITIVITY_MULTIPLER = 0.5f;
+    public static int mouseSensitivityValue = 3;
 
     private void Awake()
     {
@@ -25,6 +24,5 @@ public class MouseSensitivityManager : MonoBehaviour
     {
         mouseSensitivityValue = Mathf.RoundToInt(sensitivitySlider.value);
         sensitivityText.text = mouseSensitivityValue.ToString();
-        MouseLook.mouseSensitivity = mouseSensitivityValue;
     }
 }
