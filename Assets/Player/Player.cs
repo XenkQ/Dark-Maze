@@ -5,9 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private AllEnemiesInSceneManager allEnemiesInSceneManager;
-    [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject playerModel;
-    public Camera PlayerCamera { get { return playerCamera; } }
 
     private void FixedUpdate()
     {

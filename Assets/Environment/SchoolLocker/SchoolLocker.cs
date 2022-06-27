@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class SchoolLocker : MonoBehaviour
 {
-    private Animator animator;
-    private bool isOpen = false;
+    public bool isOpen = false;
     private Player player;
-    public bool IsOpen { get { return isOpen; } }
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -39,17 +36,5 @@ public class SchoolLocker : MonoBehaviour
         {
             player.MakePlayerKillable();
         }
-    }
-
-    public void PlayOpenAnimation()
-    {
-        animator.SetTrigger("OpenLocker");
-        isOpen = true;
-    }
-
-    public void PlayCloseAnimation()
-    {
-        animator.SetTrigger("CloseLocker");
-        isOpen = false;
     }
 }

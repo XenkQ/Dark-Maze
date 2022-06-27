@@ -31,12 +31,12 @@ public class Enemy : MonoBehaviour
     [Header("Other Scripts")]
     private Enemy1AnimationsManager animationsMenager;
 
+    [Header("Objects")]
+    private Camera playerCamera;
+
     [Header("Enemy is visible ray")]
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float maxDistanceTheOpponentCanBeSeen = 20f;
-
-    [Header("Objects")]
-    private Camera playerCamera;
 
     [Header("Colliders")]
     [SerializeField] private BoxCollider headCollider;
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animationsMenager = GetComponent<Enemy1AnimationsManager>();
-        playerCamera = player.PlayerCamera;
+        playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>();
     }
 
     private void Start()

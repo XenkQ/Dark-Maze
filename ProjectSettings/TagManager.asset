@@ -9,6 +9,9 @@ TagManager:
   - UnkillablePlayer
   - Enemy
   - Map
+  - PlayerCamera
+  - Note
+  - CursorManager
   layers:
   - Default
   - TransparentFX

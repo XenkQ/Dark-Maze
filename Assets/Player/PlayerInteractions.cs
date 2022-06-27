@@ -9,51 +9,38 @@ public class PlayerInteractions : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Player player;
-    private Camera playerCamera;
-    private SchoolLocker currentSchoolLocker;
 
-    private void Awake()
-    {
-        playerCamera = player.PlayerCamera;
-    }
+    [Header("Other Scripts")]
+    [SerializeField] CursorManager cursorManager;
+    [SerializeField] PlayerCamera playerCamera;
 
     private void Update()
     {
-        ObjectsVisibleForPlayer();
+        InteractWithVisibleObject();
     }
 
-    private void ObjectsVisibleForPlayer()
+    private void InteractWithVisibleObject()
     {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+
         if (Physics.Raycast(ray, out RaycastHit hitinfo, maxInteractionRange))
         {
-            ActionsAfterPlayerSeesSchoolLockerDoors(ray, hitinfo);
+            switch (hitinfo.transform.tag)
+            {
+                case "SchoolLockerDoor":
+                    hitinfo.transform.parent.GetComponent<SchoolLockerInteractions>().InteractWithSchoolLockerDoor();
+                    break;
+
+                case "Note":
+                    hitinfo.transform.GetComponent<NoteInteractions>().InteractWithNote();
+                    break;
+            }
+
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxInteractionRange, Color.red);
         }
         else
         {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxInteractionRange, Color.green);
-        }
-    }
-
-    private void ActionsAfterPlayerSeesSchoolLockerDoors(Ray ray, RaycastHit hitinfo)
-    {
-        if (hitinfo.transform.gameObject.tag == "SchoolLockerDoor")
-        {
-            currentSchoolLocker = hitinfo.transform.parent.GetComponent<SchoolLocker>();
-            OpenCloseSchoolLockerAfterPressingE();
-            Debug.DrawLine(ray.origin, hitinfo.point, Color.red);
-        }
-    }
-
-    private void OpenCloseSchoolLockerAfterPressingE()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && !currentSchoolLocker.IsOpen)
-        {
-            currentSchoolLocker.PlayOpenAnimation();
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && currentSchoolLocker.IsOpen)
-        {
-            currentSchoolLocker.PlayCloseAnimation();
         }
     }
 }
