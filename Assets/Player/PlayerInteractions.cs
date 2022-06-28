@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
     [Header("Ray")]
     [SerializeField] private float maxInteractionRange = 3f;
-
-    [Header("Objects")]
-    [SerializeField] private Player player;
 
     [Header("Other Scripts")]
     [SerializeField] CursorManager cursorManager;
@@ -32,7 +27,13 @@ public class PlayerInteractions : MonoBehaviour
                     break;
 
                 case "Note":
+                    cursorManager.EnableZoomInteractionCursor();
                     hitinfo.transform.GetComponent<NoteInteractions>().InteractWithNote();
+                    break;
+
+                default:
+                    cursorManager.DisableZoomInteractionCursor();
+                    playerCamera.ReturnToDeafultZoom();
                     break;
             }
 

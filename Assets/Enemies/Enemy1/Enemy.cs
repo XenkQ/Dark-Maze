@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,13 +12,13 @@ public class Enemy : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private int rotationSpeed = 8;
 
-    [Header("EnemyPaths")]
+    [Header("Enemy Paths")]
     [SerializeField] private Transform[] spawnPointTransforms;
     [SerializeField] private float distanceToChangePoint = 4;
     private Vector3 currentDestination;
     private Vector3 lastDestination;
 
-    [Header("player interactions")]
+    [Header("Enemy Behaviours")]
     [SerializeField] [Range(1, 25)] private int enemyRadius;
     public int EnemyRadius { get { return enemyRadius; } }
     [SerializeField] private EnemyState enemyState;

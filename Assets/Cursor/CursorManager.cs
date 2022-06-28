@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CursorManager : MonoBehaviour
@@ -29,6 +27,7 @@ public class CursorManager : MonoBehaviour
         if (zoomCursor.active == false)
         {
             zoomCursor.SetActive(true);
+            Debug.Log("CursorEnabled");
         }
     }
 
@@ -37,6 +36,7 @@ public class CursorManager : MonoBehaviour
         if (zoomCursor.active == true)
         {
             zoomCursor.SetActive(false);
+            Debug.Log("CursorDisabled");
         }
     }
 }

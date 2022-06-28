@@ -128,17 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7901959238958410429, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
   m_PrefabInstance: {fileID: 7901959238003607500}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &134832354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3973357892085328427, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-  m_PrefabInstance: {fileID: 7901959238003607500}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134832347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4f2dc9e37db2c940ba42ac92af97a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &135004371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2984968361726869938, guid: 9ea8691f7d2632c4eb99adbcbfe52e97, type: 3}
@@ -1745,14 +1734,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2074388979993584790, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: m_Name
-      value: RenderMapCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 3973357892085328427, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: zoomInValue
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6017002468059063898, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: allEnemiesInSceneManager
       value: 
@@ -1806,16 +1787,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7901959238632668446, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: playerCamera
-      value: 
-      objectReference: {fileID: 134832354}
-    - target: {fileID: 7901959238632668446, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: cursorManager
       value: 
       objectReference: {fileID: 908722296}
-    - target: {fileID: 7901959238958410429, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: m_TagString
-      value: PlayerCamera
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
