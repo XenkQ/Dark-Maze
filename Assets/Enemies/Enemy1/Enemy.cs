@@ -9,26 +9,15 @@ public class Enemy : MonoBehaviour
     [Header("Targets")]
     private Player player;
 
-    [Header("Rotation")]
-    [SerializeField] private int rotationSpeed = 8;
-
-    [Header("Enemy Paths")]
-    [SerializeField] private Transform[] spawnPointTransforms;
-    [SerializeField] private float distanceToChangePoint = 4;
-    private Vector3 currentDestination;
-    private Vector3 lastDestination;
-
     [Header("Enemy Behaviours")]
     [SerializeField] [Range(1, 25)] private int enemyRadius;
     public int EnemyRadius { get { return enemyRadius; } }
     [SerializeField] private EnemyState enemyState;
     [SerializeField] private float searchingTime;
 
-    [Header("Compontents")]
-    private NavMeshAgent navMeshAgent;
-
     [Header("Other Scripts")]
     private Enemy1AnimationsManager animationsMenager;
+    private EnemyMovement enemyMovement;
 
     [Header("Objects")]
     private Camera playerCamera;
@@ -41,10 +30,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private BoxCollider headCollider;
     [SerializeField] private BoxCollider spineCollider;
 
+    private NavMeshAgent navMeshAgent;
+
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         animationsMenager = GetComponent<Enemy1AnimationsManager>();
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>();
     }
@@ -52,18 +43,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         enemyState = EnemyState.Normal;
-        SetRandomDestination();
     }
 
     private void FixedUpdate()
     {
         EnemyStateMachine();
-        ChangeDestinationAfterReach();
-
-        if(IsVisibleByCamera())
-        {
-            Debug.Log("isVisible" + transform.name);
-        }
     }
 
     private void EnemyStateMachine()
@@ -109,69 +93,16 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-    private void ChangeDestinationAfterReach()
-    {
-        if (Vector3.Distance(this.transform.position, currentDestination) < distanceToChangePoint)
-        {
-            SetRandomDestination();
-        }
-    }
-
-    private void StopEnemyMovement()
-    {
-        if (navMeshAgent.isStopped == false)
-        {
-            navMeshAgent.isStopped = true;
-        }
-    }
-
-    private void ResumeEnemyMovement()
-    {
-        if (navMeshAgent.isStopped == true)
-        {
-            navMeshAgent.isStopped = false;
-        }
-    }
-
-    private void SetRandomDestination()
-    {
-        Debug.Log("Zmiana");
-        if (lastDestination != null)
-        {
-            lastDestination = currentDestination;
-            do
-            {
-                currentDestination = GetRandomDestinationPointPosition();
-            }
-            while (lastDestination == currentDestination);
-            navMeshAgent.destination = currentDestination;
-        }
-        else
-        {
-            currentDestination = GetRandomDestinationPointPosition();
-        }
-    }
-
-    private Vector3 GetRandomDestinationPointPosition()
-    {
-        return GetRandomDestinationPoint().position;
-    }
-
-    private Transform GetRandomDestinationPoint()
-    {
-        return spawnPointTransforms[Random.Range(0, spawnPointTransforms.Length)];
-    }
-
     private void EnemyActionsRelatedToState()
     {
         switch (enemyState)
         {
             case EnemyState.Normal:
-                ChangeBackToCurrentDestination();
+                enemyMovement.ChangeBackToCurrentDestination();
                 break;
 
             case EnemyState.Chasing:
-                RotateAtPlayerDirection();
+                enemyMovement.RotateAtDirection(player.transform.position);
                 ChasePlayer();
                 break;
 
@@ -181,19 +112,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ChangeBackToCurrentDestination()
-    {
-        navMeshAgent.destination = currentDestination;
-    }
-
-    private void RotateAtPlayerDirection()
-    {
-        Vector3 dir = player.transform.position - transform.position;
-        dir.y = 0;
-        var rotation = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
-    }
-
     private void ChasePlayer()
     {
         navMeshAgent.destination = player.transform.position;
@@ -201,7 +119,6 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator LookAroundProcess()
     {
-        Debug.Log("State: " + enemyState);
         LookAround();
         yield return new WaitForSeconds(searchingTime);
         StopLookingAround();
@@ -211,17 +128,16 @@ public class Enemy : MonoBehaviour
     {
         enemyState = EnemyState.Searching;
         animationsMenager.StartSearchingAnimation();
-        StopEnemyMovement();
-        Debug.Log("Searching");
+        enemyMovement.StopEnemyMovement();
     }
 
     private void StopLookingAround()
     {
-        ChangeBackToCurrentDestination();
+        enemyMovement.ChangeBackToCurrentDestination();
         animationsMenager.StopSearchingAnimation();
-        ResumeEnemyMovement();
+        enemyMovement.ResumeEnemyMovement();
         enemyState = EnemyState.Normal;
-        Debug.Log("Searching Ended");
+
     }
 
     public bool IsVisibleByCamera()
