@@ -2,8 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Enemy1AnimationsManager))]
+[RequireComponent(typeof(Enemy1AnimationsManager),typeof(NavMeshAgent), typeof(EnemyMovement))]
 public class Enemy : MonoBehaviour
 {
     [Header("Targets")]
@@ -16,8 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float searchingTime;
 
     [Header("Other Scripts")]
-    private Enemy1AnimationsManager animationsMenager;
     private EnemyMovement enemyMovement;
+    private Enemy1AnimationsManager animationsMenager;
 
     [Header("Objects")]
     private Camera playerCamera;
@@ -35,8 +34,9 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         animationsMenager = GetComponent<Enemy1AnimationsManager>();
+        enemyMovement = GetComponent<EnemyMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>();
     }
 

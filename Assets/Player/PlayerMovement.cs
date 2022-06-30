@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
         {
-            //audioSource.Stop();
             timeTheKeyIsPressed = 0;
         }
         else

@@ -12,7 +12,7 @@ public class VolumeManager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioMixer audioMixer;
     public static float volumeValue;
-    public static float volumeSliderValue;
+    public static float volumeSliderValue = 1;
 
     private void Awake()
     {
