@@ -1,27 +1,9 @@
 fileFormatVersion: 2
-guid: 61434229d0e1bb249ae0d52292f961fe
+guid: eb3cceb5eccb4dc488f79a2bcd91e594
 ModelImporter:
   serializedVersion: 21100
-  internalIDToNameTable:
-  - first:
-      74: -4791504522942941401
-    second: Armature|Armature|mixamo.com|Layer0
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Red.001
-    second: {fileID: 2100000, guid: 5e0ca78dab75c1545a02e43b9a1a619a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Skin.001
-    second: {fileID: 2100000, guid: b843c5459cdd50146999d417feee0c95, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: eyes.001
-    second: {fileID: 2100000, guid: 5e0ca78dab75c1545a02e43b9a1a619a, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,8 +72,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - b2c82b12a9d5da040b75c4c7e2416070
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
