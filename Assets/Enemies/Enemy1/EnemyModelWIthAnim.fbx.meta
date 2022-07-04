@@ -11,12 +11,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red.001
-    second: {fileID: 2100000, guid: 5e0ca78dab75c1545a02e43b9a1a619a, type: 2}
+    second: {fileID: 2100000, guid: b843c5459cdd50146999d417feee0c95, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Skin.001
-    second: {fileID: 2100000, guid: b843c5459cdd50146999d417feee0c95, type: 2}
+    second: {fileID: 2100000, guid: 6930383b2b770504798c4283becea2fc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

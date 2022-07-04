@@ -16,6 +16,12 @@ public class ESCMenu : MonoBehaviour
 
     [Header("Other Scripts")]
     [SerializeField] private TextInteractionsEffects textInteractionsEffects;
+    private PlayerCamera playerCamera;
+
+    private void Awake()
+    {
+        playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
+    }
 
     private void Update()
     {
@@ -38,6 +44,7 @@ public class ESCMenu : MonoBehaviour
     {
         GameTimeManager.PauseGame();
         content.SetActive(true);
+        playerCamera.DisableCameraRotationScript();
         CursorManager.UnlockCursor();
     }
 
@@ -51,6 +58,7 @@ public class ESCMenu : MonoBehaviour
         ResetAllTextColors();
         GameTimeManager.UnpauseGame();
         DisableESCMenu();
+        playerCamera.EnableCameraRotationScript();
         CursorManager.LockCursor();
     }
 

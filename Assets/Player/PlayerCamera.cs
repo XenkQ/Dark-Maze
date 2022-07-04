@@ -15,10 +15,12 @@ public class PlayerCamera : MonoBehaviour
     public bool IsZoomedOut { get { return isZoomedOut; } }
 
     private Camera playerCamera;
+    private MouseLook mouseLook;
 
     private void Awake()
     {
         playerCamera = GetComponent<Camera>();
+        mouseLook = GetComponent<MouseLook>();
     }
 
     public Camera GetPlayerCamera()
@@ -56,6 +58,22 @@ public class PlayerCamera : MonoBehaviour
             isDefaultZoom = true;
             isZoomedOut = false;
             isZoomedIn = false;
+        }
+    }
+
+    public void DisableCameraRotationScript()
+    {
+        if(mouseLook.enabled == true)
+        {
+            mouseLook.enabled = false;
+        }
+    }
+
+    public void EnableCameraRotationScript()
+    {
+        if (mouseLook.enabled == false)
+        {
+            mouseLook.enabled = true;
         }
     }
 }
