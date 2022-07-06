@@ -186,14 +186,14 @@ MonoBehaviour:
     id rutrum. Quisque suscipit posuere nulla sed ullamcorper. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c0c2769df325984598b345d32b00cf2, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: fa617c591d21b584ea5b609490a8f70a, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 8f903794f93c6404fb580cf8515cb198, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4283124555
+  m_fontColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

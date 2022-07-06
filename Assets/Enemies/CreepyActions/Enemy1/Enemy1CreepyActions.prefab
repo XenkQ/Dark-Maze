@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5375367919784710315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5375367919784710324}
+  - component: {fileID: 5375367919784710325}
+  m_Layer: 0
+  m_Name: Enemy1CreepyActions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5375367919784710324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375367919784710315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1280190089309829458}
+  - {fileID: 5375367920634039256}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5375367919784710325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375367919784710315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0e1caa45c41264e803b1837e651300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionType: 0
+  jumpBehindWallAction: {fileID: 1280190089309829453}
+--- !u!1 &5375367920634039263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5375367920634039256}
+  - component: {fileID: 5375367920634039257}
+  - component: {fileID: 5375367920634039258}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5375367920634039256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375367920634039263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.21, y: 1.4, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5375367919784710324}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5375367920634039257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375367920634039263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 9.523356}
+  m_Center: {x: 0, y: 0, z: -0.8430314}
+--- !u!114 &5375367920634039258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375367920634039263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b2fab209ed1d544b214e897ca3b6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy1CreepyActionsManager: {fileID: 5375367919784710325}
+--- !u!114 &5375367921169236504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280190089309829453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64b63514fe8f3c458fbdaac678cc154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5375367921169236509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5375367919784710324}
+    m_Modifications:
+    - target: {fileID: 6583421247636061003, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.998715
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.050679494
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 365.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583421247636061008, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+      propertyPath: m_Name
+      value: JumpBehindWallAction
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+--- !u!1 &1280190089309829453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6583421247636061008, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+  m_PrefabInstance: {fileID: 5375367921169236509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1280190089309829458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6583421247636061007, guid: 686ea2e811c16294997503342e0328ef, type: 3}
+  m_PrefabInstance: {fileID: 5375367921169236509}
+  m_PrefabAsset: {fileID: 0}
