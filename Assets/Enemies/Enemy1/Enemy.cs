@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private BoxCollider spineCollider;
 
     private NavMeshAgent navMeshAgent;
-    public static bool atLeastOneOpponentVisible;
 
     private void Awake()
     {
@@ -49,11 +48,6 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         EnemyStateMachine();
-
-        if(IsVisibleByCamera())
-        {
-
-        }    
     }
 
     private void EnemyStateMachine()
