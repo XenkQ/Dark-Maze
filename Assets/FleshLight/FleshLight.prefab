@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609d05174e3d48149865f79896f86bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistanceToShrink: 1
 --- !u!108 &6652232573015910055
 Light:
   m_ObjectHideFlags: 0
