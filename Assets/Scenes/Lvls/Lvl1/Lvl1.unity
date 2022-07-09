@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 1, g: 1, b: 1, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.05
   m_LinearFogStart: 0
-  m_LinearFogEnd: 64.3
+  m_LinearFogEnd: 200
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 1837749128}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -2219,7 +2219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &766952883
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2240,7 +2240,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59078e19041a3914ea8de99cd1344b1e, type: 2}
+  - {fileID: 2100000, guid: a46af26e9f32abb4799784d5c2bd6af6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2278,8 +2278,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766952882}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -96.462006, y: 180.7767, z: -165.029}
-  m_LocalScale: {x: 3.1512897, y: 105.55711, z: 140.27882}
+  m_LocalPosition: {x: -43.5401, y: 169.4096, z: -163.0186}
+  m_LocalScale: {x: 1.2683941, y: 22.036242, z: 21.209698}
   m_Children: []
   m_Father: {fileID: 1654453715}
   m_RootOrder: 1
@@ -2295,8 +2295,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.15195778, z: 0.107001826}
-  m_Center: {x: -1.1698993e-13, y: -0.1392505, z: 0.34436288}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &779144803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6977061860385242799, guid: 00105a346b951234db8db919b55ad652, type: 3}
@@ -3154,11 +3154,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929707012287116237, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32
+      value: -74.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929707012287116237, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -62.3
       objectReference: {fileID: 0}
     - target: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_Name
       value: Enemy1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2929707012416095257, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_RootOrder
@@ -6297,7 +6305,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7043,6 +7051,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 861066313}
     m_Modifications:
+    - target: {fileID: 3422548101959076907, guid: 0c7263d92954bae458403dff5fe2a727, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422548101959076907, guid: 0c7263d92954bae458403dff5fe2a727, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3782928225795763710, guid: 0c7263d92954bae458403dff5fe2a727, type: 3}
       propertyPath: m_Name
       value: Maze
@@ -7202,9 +7218,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ESCMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 5947804003041827803, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
+    - target: {fileID: 2023227470054714309, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023227470594423911, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
+      propertyPath: m_text
+      value: Dark maze
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947804003041827803, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e008d18842ed485449a45f57d80a8bab, type: 3}
@@ -7230,6 +7254,10 @@ PrefabInstance:
     - target: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929707012416095256, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2929707012416095257, guid: 08dc2ead6439e3d469be688c4f8cea15, type: 3}
       propertyPath: m_RootOrder
@@ -8006,7 +8034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077308670133804540, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9077308670133804540, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_Intensity
@@ -8019,6 +8047,10 @@ PrefabInstance:
     - target: {fileID: 9077308670133804540, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_InnerSpotAngle
       value: 37.410896
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077308670133804540, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9077308670133804540, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_ColorTemperature
