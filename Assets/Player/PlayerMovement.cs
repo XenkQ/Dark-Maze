@@ -7,15 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerAudioMenager playerAudioMenager;
     [SerializeField] private float speedMultipler = 0;
     [SerializeField] private float timeToPlaySongAfterStep = 0.2f;
-    private CharacterController controler;
-    private Transform playerTransform;
+    [SerializeField] private CharacterController controler;
     private float timeTheKeyIsPressed = 0;
-
-    private void Awake()
-    {
-        controler = GetComponent<CharacterController>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-    }
 
     private void Update()
     {
@@ -33,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         float inputHorizontal = Input.GetAxisRaw("Horizontal");
         float inputVertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 moveVector = (((playerTransform.transform.right * inputHorizontal) + (playerTransform.transform.forward * inputVertical))).normalized * speedMultipler;
+        Vector3 moveVector = (((transform.transform.right * inputHorizontal) + (transform.transform.forward * inputVertical))).normalized * speedMultipler;
         controler.Move(moveVector * Time.deltaTime);
     }
 

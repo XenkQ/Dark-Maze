@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour, ICanExitGame
 {
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI playText;
@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
                 break;
 
             case "ExitButton":
-                ApplicationManager.ExitApplication();
+                Exit();
                 break;
         }
     }
@@ -53,5 +53,10 @@ public class MainMenu : MonoBehaviour
     private void Play()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void Exit()
+    {
+        ApplicationManager.ExitApplication();
     }
 }

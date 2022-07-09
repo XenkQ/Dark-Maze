@@ -13,6 +13,7 @@ TagManager:
   - Note
   - CursorManager
   - DeathMenu
+  - FleshLight
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public class FleshLight : MonoBehaviour
 {
     private Light lightComponent;
     private bool isLightEnabled = true;
+    private bool canUse = true;
     [SerializeField] private float maxDistanceToShrink = 1f;
 
     private void Awake()
@@ -15,21 +16,17 @@ public class FleshLight : MonoBehaviour
 
     private void Update()
     {
-        OnMouseLeftClickActions();
+        if(canUse){ OnMouseLeftClickActions(); }
+    }
 
-        Ray ray = new Ray(transform.position, transform.forward);
+    public void PauseFleshLightActions()
+    {
+        canUse = false;
+    }
 
-        if (Physics.Raycast(ray, maxDistanceToShrink))
-        {
-            Debug.Log("Hit");
-            //lightComponent.spotAngle -= 20 * Time.deltaTime;
-            //lightComponent.innerSpotAngle -= 20 * Time.deltaTime;
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistanceToShrink, Color.blue);
-        }
-        else
-        {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistanceToShrink, Color.gray);
-        }
+    public void UnpauseFleshLightActions()
+    {
+        canUse = true;
     }
 
     private void OnMouseLeftClickActions()
@@ -44,13 +41,13 @@ public class FleshLight : MonoBehaviour
         }
     }
 
-    public void DisableLight()
+    private void DisableLight()
     {
         lightComponent.enabled = false;
         isLightEnabled = false;
     }
 
-    public void EnableLight()
+    private void EnableLight()
     {
         lightComponent.enabled = true;
         isLightEnabled = true;

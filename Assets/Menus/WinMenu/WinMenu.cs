@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DeathMenuManager : MonoBehaviour, ICanExitGame, ICanRestartLvl
+public class WinMenu : MonoBehaviour, ICanExitGame, ICanRestartLvl
 {
-    [SerializeField] private GameObject deathMenuContent;
+    [SerializeField] private GameObject winMenuContent;
     private FleshLight fleshLight;
 
     private void Awake()
@@ -10,14 +10,14 @@ public class DeathMenuManager : MonoBehaviour, ICanExitGame, ICanRestartLvl
         fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
     }
 
-    public void ActiveDeathMenuContent()
+    public void ActiveWinMenuContent()
     {
-        if(deathMenuContent.active == false)
+        if(winMenuContent.active == false)
         {
             GameTimeManager.PauseGame();
             fleshLight.PauseFleshLightActions();
             CursorManager.UnlockCursor();
-            deathMenuContent.SetActive(true);
+            winMenuContent.SetActive(true);
         }
     }
 

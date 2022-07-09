@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ESCMenu : MonoBehaviour
+public class ESCMenu : MonoBehaviour, ICanExitGame
 {
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI toSettingsText;
@@ -16,14 +16,15 @@ public class ESCMenu : MonoBehaviour
 
     [Header("Other Scripts")]
     [SerializeField] private TextInteractionsEffects textInteractionsEffects;
-    private PlayerCamera playerCamera;
-
     [SerializeField] private InLvlPostProcessingManager inLvlPostProcessingManager;
     [SerializeField] private PlayerInteractions playerInteractions;
+    private FleshLight fleshLight;
+    private PlayerCamera playerCamera;
 
     private void Awake()
     {
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
+        fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
     }
 
     private void Update()
@@ -32,6 +33,7 @@ public class ESCMenu : MonoBehaviour
         {
             GameTimeManager.PauseGame();
             playerInteractions.StopInteractions();
+            fleshLight.PauseFleshLightActions();
             ESCMenuContentActivationProcess();
             CursorManager.UnlockCursor();
         }
@@ -39,6 +41,7 @@ public class ESCMenu : MonoBehaviour
         {
             GameTimeManager.UnpauseGame();
             playerInteractions.ResumeInteractions();
+            fleshLight.UnpauseFleshLightActions();
             DisableESCMenuContentProcess();
             CursorManager.LockCursor();
         }
@@ -86,7 +89,7 @@ public class ESCMenu : MonoBehaviour
         textInteractionsEffects.ResetAllTextColors(new TextMeshProUGUI[] { toSettingsText, exitText }, textInteractionsEffects.DeafultColor);
     }
 
-    public void OnExitButtonClick()
+    public void Exit()
     {
         ApplicationManager.ExitApplication();
     }
