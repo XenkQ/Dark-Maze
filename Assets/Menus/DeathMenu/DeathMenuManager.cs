@@ -1,16 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathMenuManager : MonoBehaviour
 {
-    private void OnEnable()
+    [SerializeField] private GameObject deathMenuContent;
+
+    public void ActiveDeathMenuContent()
     {
-        CursorManager.UnlockCursor();
+        if(deathMenuContent.active == false)
+        {
+            deathMenuContent.SetActive(true);
+            CursorManager.UnlockCursor();
+        }
     }
 
     public void OnTryAgainButtonClick()
     {
         GameSceneManager.RestartCurrentScene();
     }
+
 }

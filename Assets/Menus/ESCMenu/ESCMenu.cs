@@ -18,6 +18,9 @@ public class ESCMenu : MonoBehaviour
     [SerializeField] private TextInteractionsEffects textInteractionsEffects;
     private PlayerCamera playerCamera;
 
+    [SerializeField] private InLvlPostProcessingManager inLvlPostProcessingManager;
+    [SerializeField] private PlayerInteractions playerInteractions;
+
     private void Awake()
     {
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
@@ -27,11 +30,17 @@ public class ESCMenu : MonoBehaviour
     {
         if (CanActiveESCMenu())
         {
-            ESCMenuActivationWithPausingGameProcess();
+            GameTimeManager.PauseGame();
+            playerInteractions.StopInteractions();
+            ESCMenuContentActivationProcess();
+            CursorManager.UnlockCursor();
         }
         else if (CanDisableESCMenu())
         {
-            DisableESCMenuWithUnpausingGameProcess();
+            GameTimeManager.UnpauseGame();
+            playerInteractions.ResumeInteractions();
+            DisableESCMenuContentProcess();
+            CursorManager.LockCursor();
         }
     }
 
@@ -40,12 +49,11 @@ public class ESCMenu : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Escape) && content.active == false && settingsMenuContent.active == false;
     }
 
-    private void ESCMenuActivationWithPausingGameProcess()
+    private void ESCMenuContentActivationProcess()
     {
-        GameTimeManager.PauseGame();
+        inLvlPostProcessingManager.ActiveDepthOfFieldEffect(true);
         content.SetActive(true);
         playerCamera.DisableCameraRotationScript();
-        CursorManager.UnlockCursor();
     }
 
     private bool CanDisableESCMenu()
@@ -53,13 +61,12 @@ public class ESCMenu : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Escape) && content.active == true;
     }
 
-    private void DisableESCMenuWithUnpausingGameProcess()
+    private void DisableESCMenuContentProcess()
     {
         ResetAllTextColors();
-        GameTimeManager.UnpauseGame();
-        DisableESCMenu();
+        inLvlPostProcessingManager.ActiveDepthOfFieldEffect(false);
+        content.SetActive(false);
         playerCamera.EnableCameraRotationScript();
-        CursorManager.LockCursor();
     }
 
     private void DisableESCMenu()

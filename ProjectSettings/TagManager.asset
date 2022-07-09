@@ -12,6 +12,7 @@ TagManager:
   - PlayerCamera
   - Note
   - CursorManager
+  - DeathMenu
   layers:
   - Default
   - TransparentFX

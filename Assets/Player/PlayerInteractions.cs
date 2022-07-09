@@ -5,13 +5,26 @@ public class PlayerInteractions : MonoBehaviour
     [Header("Ray")]
     [SerializeField] private float maxInteractionRange = 3f;
 
+    public bool canInteract = true;
+
     [Header("Other Scripts")]
     [SerializeField] CursorManager cursorManager;
     [SerializeField] PlayerCamera playerCamera;
 
     private void Update()
     {
-        InteractWithVisibleObject();
+        if(canInteract){InteractWithVisibleObject();}
+        else { cursorManager.DisableZoomInteractionCursor(); }
+    }
+
+    public void StopInteractions()
+    {
+        canInteract = false;
+    }
+
+    public void ResumeInteractions()
+    {
+        canInteract = true;
     }
 
     private void InteractWithVisibleObject()

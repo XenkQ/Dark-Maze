@@ -44,13 +44,13 @@ public class FleshLight : MonoBehaviour
         }
     }
 
-    private void DisableLight()
+    public void DisableLight()
     {
         lightComponent.enabled = false;
         isLightEnabled = false;
     }
 
-    private void EnableLight()
+    public void EnableLight()
     {
         lightComponent.enabled = true;
         isLightEnabled = true;
