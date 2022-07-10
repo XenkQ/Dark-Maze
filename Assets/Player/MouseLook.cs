@@ -9,7 +9,6 @@ public class MouseLook : MonoBehaviour
     private void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        CursorManager.LockCursor();
     }
 
     private void Update()

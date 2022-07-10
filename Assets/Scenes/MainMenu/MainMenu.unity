@@ -937,7 +937,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1688389379}
     m_Modifications:
     - target: {fileID: 886594839526271654, guid: b28fe06a48ccd8a45b8ad711c9108e7f, type: 3}
-      propertyPath: backToMenuContent
+      propertyPath: overridingContent
       value: 
       objectReference: {fileID: 1859158468}
     - target: {fileID: 886594839526271672, guid: b28fe06a48ccd8a45b8ad711c9108e7f, type: 3}

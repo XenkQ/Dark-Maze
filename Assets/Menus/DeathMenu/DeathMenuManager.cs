@@ -14,6 +14,7 @@ public class DeathMenuManager : MonoBehaviour, ICanExitGame, ICanRestartLvl
     {
         if(deathMenuContent.active == false)
         {
+            ESCMenu.BlockFunctionality();
             GameTimeManager.PauseGame();
             fleshLight.PauseFleshLightActions();
             CursorManager.UnlockCursor();

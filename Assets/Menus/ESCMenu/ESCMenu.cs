@@ -6,6 +6,8 @@ using TMPro;
 
 public class ESCMenu : MonoBehaviour, ICanExitGame
 {
+    private static bool canBeUsed = true;
+
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI toSettingsText;
     [SerializeField] private TextMeshProUGUI exitText;
@@ -25,9 +27,18 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
     {
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
         fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
+        UnblockFunctionality();
     }
 
     private void Update()
+    {
+        if(canBeUsed)
+        {
+            ActiveOrDisableOnEscKey();
+        }
+    }
+
+    private void ActiveOrDisableOnEscKey()
     {
         if (CanActiveESCMenu())
         {
@@ -75,6 +86,22 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
     private void DisableESCMenu()
     {
         content.SetActive(false);
+    }
+
+    public static void BlockFunctionality()
+    {
+        if(canBeUsed == true)
+        {
+            canBeUsed = false;
+        }
+    }
+
+    public static void UnblockFunctionality()
+    {
+        if(canBeUsed == false)
+        {
+            canBeUsed = true;
+        }
     }
 
     public void OnSettingsButtonClick()

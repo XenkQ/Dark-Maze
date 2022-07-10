@@ -15,7 +15,7 @@ public class SettingSaveManager : MonoBehaviour
         public float volumeSliderValue;
         public int resolutionIndex;
         public int qualityIndex;
-        public bool fullScreen;
+        public bool isFullScreen;
     }
 
     private void Awake()
@@ -53,7 +53,7 @@ public class SettingSaveManager : MonoBehaviour
             VolumeManager.volumeSliderValue = loadedSettingsData.volumeSliderValue;
             ResolutionManager.resolutionIndex = loadedSettingsData.resolutionIndex;
             QualityManager.qualityIndex = loadedSettingsData.qualityIndex;
-            FullScreenManager.isFullScreen = loadedSettingsData.fullScreen;
+            FullScreenManager.isFullScreen = loadedSettingsData.isFullScreen;
         }
     }
 
@@ -65,13 +65,53 @@ public class SettingSaveManager : MonoBehaviour
         settingsData.volumeSliderValue = VolumeManager.volumeSliderValue;
         settingsData.resolutionIndex = ResolutionManager.resolutionIndex;
         settingsData.qualityIndex = QualityManager.qualityIndex;
-        settingsData.fullScreen = FullScreenManager.isFullScreen;
+        settingsData.isFullScreen = FullScreenManager.isFullScreen;
+        WriteSettingsToJasonFile(settingsData);
+    }
 
+    private void WriteSettingsToJasonFile(SettingsData settingsData)
+    {
         string jason = JsonUtility.ToJson(settingsData);
         Debug.Log(jason);
-
         File.WriteAllText(settingsFilePath, jason);
     }
+
+    //public void SaveSettingsValue(float value , SettingsType settingsType)
+    //{
+    //    SettingsData settingsData = new SettingsData();
+    //    switch (settingsType)
+    //    {
+    //        case SettingsType.MouseSensitivityValue:
+    //            settingsData.mouseSensitivityValue = MouseSensitivityManager.mouseSensitivityValue;
+    //            WriteSettingsToJasonFile(settingsData);
+    //            break;
+
+    //        case SettingsType.VolumeValue:
+    //            settingsData.volumeValue = VolumeManager.volumeValue;
+    //            WriteSettingsToJasonFile(settingsData);
+    //            break;
+
+    //        case SettingsType.VolumeSliderValue:
+    //            settingsData.volumeSliderValue = VolumeManager.volumeSliderValue;
+    //            WriteSettingsToJasonFile(settingsData);
+    //            break;
+
+    //        case SettingsType.ResolutionIndex:
+    //            settingsData.resolutionIndex = ResolutionManager.resolutionIndex;
+    //            WriteSettingsToJasonFile(settingsData);
+    //            break;
+
+    //        case SettingsType.QualityIndex:
+    //            settingsData.qualityIndex = QualityManager.qualityIndex;
+    //            WriteSettingsToJasonFile(settingsData);
+    //            break;
+
+    //        case SettingsType.IsFullScreen:
+    //            settingsData.isFullScreen = FullScreenManager.isFullScreen;
+    //            WriteSettingsToJasonFile(settingsData);
+    //            break;
+    //    }
+    //}
 
     private bool IsSettingsFileExists()
     {

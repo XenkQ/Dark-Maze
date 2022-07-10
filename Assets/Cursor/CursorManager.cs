@@ -4,6 +4,11 @@ public class CursorManager : MonoBehaviour
 {
     [SerializeField] private GameObject zoomCursor;
 
+    private void Awake()
+    {
+        LockCursor();
+    }
+
     public static void UnlockCursor()
     {
         if (Cursor.lockState != CursorLockMode.None)

@@ -14,6 +14,7 @@ public class WinMenu : MonoBehaviour, ICanExitGame, ICanRestartLvl
     {
         if(winMenuContent.active == false)
         {
+            ESCMenu.BlockFunctionality();
             GameTimeManager.PauseGame();
             fleshLight.PauseFleshLightActions();
             CursorManager.UnlockCursor();
