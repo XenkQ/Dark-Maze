@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Enemy1AnimationsManager),typeof(NavMeshAgent), typeof(EnemyMovement))]
+[RequireComponent(typeof(Enemy1AnimationsManager), typeof(NavMeshAgent), typeof(EnemyMovement))]
 public class Enemy : MonoBehaviour
 {
     [Header("Targets")]
@@ -40,50 +40,48 @@ public class Enemy : MonoBehaviour
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         enemyState = EnemyState.Normal;
     }
 
     private void FixedUpdate()
     {
-        EnemyStateMachine();
-    }
-
-    private void EnemyStateMachine()
-    {
-        SetChasingEnemyStateIfPlayerInRadiusAndPastStateOtherThenChasing();
-
-        StopChasingPlayerIfPlayerOutOfRadiusAndPastStateEqualsToChasing();
-
-        SearchForPlayerIfPlayerInSchoolLockerAndInRadius();
-
+        AssignEnemyState();
         EnemyActionsRelatedToState();
     }
 
-    private void SetChasingEnemyStateIfPlayerInRadiusAndPastStateOtherThenChasing()
+    private void AssignEnemyState()
     {
-        if (PlayerInRadius() && player.transform.tag == "Player" && enemyState != EnemyState.Chasing)
+        if (CanChasePlayer())
         {
             enemyState = EnemyState.Chasing;
         }
-    }
-
-    private void StopChasingPlayerIfPlayerOutOfRadiusAndPastStateEqualsToChasing()
-    {
-        if (!PlayerInRadius() && enemyState == EnemyState.Chasing)
+        if (CanStopChasingPlayer())
         {
             enemyState = EnemyState.Normal;
         }
-    }
-
-    private void SearchForPlayerIfPlayerInSchoolLockerAndInRadius()
-    {
-        if (PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing)
+        if (CanSearchForPlayer())
         {
             enemyState = EnemyState.Searching;
         }
     }
+
+    private bool CanChasePlayer()
+    {
+        return PlayerInRadius() && player.transform.tag == "Player" && enemyState != EnemyState.Chasing;
+    }
+
+    private bool CanStopChasingPlayer()
+    {
+        return !PlayerInRadius() && enemyState == EnemyState.Chasing;
+    }
+
+    private bool CanSearchForPlayer()
+    {
+        return PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing;
+    }
+
     private bool PlayerInRadius()
     {
         if (Mathf.CeilToInt(Vector3.Distance(player.transform.position, this.transform.position)) <= enemyRadius)
@@ -126,7 +124,6 @@ public class Enemy : MonoBehaviour
 
     private void LookAround()
     {
-        enemyState = EnemyState.Searching;
         animationsMenager.StartSearchingAnimation();
         enemyMovement.StopEnemyMovement();
     }
@@ -137,7 +134,6 @@ public class Enemy : MonoBehaviour
         animationsMenager.StopSearchingAnimation();
         enemyMovement.ResumeEnemyMovement();
         enemyState = EnemyState.Normal;
-
     }
 
     public bool IsVisibleByCamera()
@@ -151,7 +147,7 @@ public class Enemy : MonoBehaviour
         Vector3 dirToTarget = (targetPos - transform.position).normalized;
         float distanceToTarget = Vector3.Distance(transform.position, playerCamera.transform.position);
 
-        if(!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstacleMask))
+        if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstacleMask))
         {
             Debug.DrawLine(transform.position, targetPos, Color.blue);
             return false;
