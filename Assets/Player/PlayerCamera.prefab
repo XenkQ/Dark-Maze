@@ -204,7 +204,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7003275461556603968}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -224,7 +224,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -285,15 +285,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6652232573015910052, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.129
       objectReference: {fileID: 0}
     - target: {fileID: 6652232573015910052, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.242
       objectReference: {fileID: 0}
     - target: {fileID: 6652232573015910052, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.597
       objectReference: {fileID: 0}
     - target: {fileID: 6652232573015910052, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -326,6 +326,46 @@ PrefabInstance:
     - target: {fileID: 6652232573015910053, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
       propertyPath: m_Name
       value: FleshLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910053, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_TagString
+      value: FleshLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_Range
+      value: 169.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_Intensity
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_SpotAngle
+      value: 47.850212
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 37.410896
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 7033
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294966743
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652232573015910055, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0729114bcbf81c448cea13d18e3c13c, type: 3}

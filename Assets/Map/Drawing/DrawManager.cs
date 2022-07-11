@@ -13,7 +13,7 @@ public class DrawManager : MonoBehaviour
     private Line currentLine;
 
     [Header("Other Components")]
-    [SerializeField] private Camera mapCamera;
+    [SerializeField] private Camera playerCamera;
 
     [Header("Ray Properties")]
     [SerializeField] private float rayMaxDistance = 5f;
@@ -29,7 +29,7 @@ public class DrawManager : MonoBehaviour
 
     private void DrawingProcess()
     {
-        Ray ray = mapCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, mapLayerMask) && map.IsVisible())
@@ -41,9 +41,6 @@ public class DrawManager : MonoBehaviour
             }
             else if (Input.GetMouseButton(0))
             {
-                //TODO: make if pointer exit from map stop working
-                Debug.Log("<color='green'>" + (hit.transform.tag) + "</color>");
-                Debug.Log("<color='yellow'>" + hit.transform + "</color>");
                 currentLine.SetPosition(map.transform.InverseTransformPoint(hit.point) * map.transform.localScale.x);
             }
             if (hit.transform.tag == "Map")

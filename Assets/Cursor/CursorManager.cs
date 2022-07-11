@@ -7,6 +7,7 @@ public class CursorManager : MonoBehaviour
     private void Awake()
     {
         LockCursor();
+        GameTimeManager.UnpauseGame();
     }
 
     public static void UnlockCursor()
