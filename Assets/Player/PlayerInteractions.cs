@@ -14,7 +14,7 @@ public class PlayerInteractions : MonoBehaviour
     private void Update()
     {
         if(canInteract){InteractWithVisibleObject();}
-        else { cursorManager.DisableZoomInteractionCursor(); }
+        else { cursorManager.DisableInteractionCursor(); }
     }
 
     public void StopInteractions()
@@ -40,12 +40,12 @@ public class PlayerInteractions : MonoBehaviour
                     break;
 
                 case "Note":
-                    cursorManager.EnableZoomInteractionCursor();
+                    cursorManager.EnableInteractionCursor();
                     hitinfo.transform.GetComponent<NoteInteractions>().InteractWithNote();
                     break;
 
                 default:
-                    cursorManager.DisableZoomInteractionCursor();
+                    cursorManager.DisableInteractionCursor();
                     playerCamera.ReturnToDeafultZoom();
                     break;
             }

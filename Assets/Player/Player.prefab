@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4508765803209473941}
-  - component: {fileID: 545576240}
+  - component: {fileID: 2058626098707463467}
   m_Layer: 0
   m_Name: MapHolder
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 6017002468539513051}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &545576240
+--- !u!114 &2058626098707463467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3234348570147310767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8410a40ada4863646a1ee00d0f7125e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 90827701b0c3a9842ac2e5065a18394d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 7901959238958410424}
+  fakeParent: {fileID: 7901959238958410424}
 --- !u!1 &3663191965704289902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,10 +1010,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7901959238632668419}
     m_Modifications:
-    - target: {fileID: 1328297258, guid: a969e8a64af378e4885130da6469df0b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294966679
-      objectReference: {fileID: 0}
     - target: {fileID: 1175565034897621611, guid: a969e8a64af378e4885130da6469df0b, type: 3}
       propertyPath: m_Name
       value: PlayerCamera
@@ -1064,18 +1060,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1175565034897621614, guid: a969e8a64af378e4885130da6469df0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621223896957497141, guid: a969e8a64af378e4885130da6469df0b, type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621223896957497141, guid: a969e8a64af378e4885130da6469df0b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 7901959238003607502, guid: a969e8a64af378e4885130da6469df0b, type: 3}
-      propertyPath: m_RenderShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

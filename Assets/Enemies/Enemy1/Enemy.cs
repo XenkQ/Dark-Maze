@@ -5,9 +5,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Enemy1AnimationsManager), typeof(NavMeshAgent), typeof(EnemyMovement))]
 public class Enemy : MonoBehaviour
 {
-    [Header("Targets")]
-    private Player player;
-
     [Header("Enemy Behaviours")]
     [SerializeField] [Range(1, 25)] private int enemyRadius;
     public int EnemyRadius { get { return enemyRadius; } }
@@ -18,7 +15,8 @@ public class Enemy : MonoBehaviour
     private EnemyMovement enemyMovement;
     private Enemy1AnimationsManager animationsMenager;
 
-    [Header("Objects")]
+    [Header("Other Objects")]
+    private Player player;
     private Camera playerCamera;
 
     [Header("Enemy is visible ray")]
@@ -37,7 +35,7 @@ public class Enemy : MonoBehaviour
         animationsMenager = GetComponent<Enemy1AnimationsManager>();
         enemyMovement = GetComponent<EnemyMovement>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>();
+        playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>().GetPlayerCamera();
     }
 
     private void OnEnable()
@@ -65,6 +63,11 @@ public class Enemy : MonoBehaviour
         {
             enemyState = EnemyState.Searching;
         }
+        //if (CanStopSearchingPlayer())
+        //{
+        //    StopCoroutine(LookAroundProcess());
+        //    enemyState = EnemyState.Chasing;
+        //}
     }
 
     private bool CanChasePlayer()
@@ -80,6 +83,11 @@ public class Enemy : MonoBehaviour
     private bool CanSearchForPlayer()
     {
         return PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing;
+    }
+
+    private bool CanStopSearchingPlayer()
+    {
+        return PlayerInRadius() && player.transform.tag == "Player" && enemyState == EnemyState.Searching;
     }
 
     private bool PlayerInRadius()

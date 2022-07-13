@@ -3,6 +3,7 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField] private GameObject zoomCursor;
+    [HideInInspector] public bool CanEnableInteractionCursor = true;
 
     private void Awake()
     {
@@ -28,15 +29,15 @@ public class CursorManager : MonoBehaviour
         }
     }
 
-    public void EnableZoomInteractionCursor()
+    public void EnableInteractionCursor()
     {
-        if (zoomCursor.active == false)
+        if (zoomCursor.active == false && CanEnableInteractionCursor == true)
         {
             zoomCursor.SetActive(true);
         }
     }
 
-    public void DisableZoomInteractionCursor()
+    public void DisableInteractionCursor()
     {
         if (zoomCursor.active == true)
         {

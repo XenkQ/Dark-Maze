@@ -39,17 +39,6 @@ public class PlayerCamera : MonoBehaviour
         }
     }
 
-    public void ZoomOut()
-    {
-        if (isZoomedOut == false)
-        {
-            playerCamera.fieldOfView = zoomOutValue;
-            isZoomedOut = true;
-            isDefaultZoom = false;
-            isZoomedOut = false;
-        }
-    }
-
     public void ReturnToDeafultZoom()
     {
         if (isDefaultZoom == false)

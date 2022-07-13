@@ -14,6 +14,7 @@ TagManager:
   - CursorManager
   - DeathMenu
   - FleshLight
+  - NoteUI
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Enemy
   - Obstacle
   - JumpScare
-  - 
+  - IgnoreFleshLight
   - 
   - 
   - 
