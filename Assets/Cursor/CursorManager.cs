@@ -3,7 +3,7 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField] private GameObject zoomCursor;
-    [HideInInspector] public bool CanEnableInteractionCursor = true;
+    [HideInInspector] private bool canEnableInteractionCursor = true;
 
     private void Awake()
     {
@@ -29,9 +29,14 @@ public class CursorManager : MonoBehaviour
         }
     }
 
+    public void CanEnableInteractionCursor(bool value)
+    {
+        canEnableInteractionCursor = value;
+    }
+
     public void EnableInteractionCursor()
     {
-        if (zoomCursor.active == false && CanEnableInteractionCursor == true)
+        if (zoomCursor.active == false && canEnableInteractionCursor == true)
         {
             zoomCursor.SetActive(true);
         }
@@ -44,4 +49,5 @@ public class CursorManager : MonoBehaviour
             zoomCursor.SetActive(false);
         }
     }
+
 }

@@ -5,6 +5,7 @@ public class NoteUI : MonoBehaviour
 {
     [SerializeField] private GameObject noteContent;
     [SerializeField] private TextMeshProUGUI contentText;
+    public bool contentIsActive = false;
 
     public void ActiveContentWithNewText(string text)
     {
@@ -15,6 +16,7 @@ public class NoteUI : MonoBehaviour
     private void ActiveContent()
     {
         noteContent.SetActive(true);
+        contentIsActive = true;
     }
 
     private void SetText(string text)
@@ -25,5 +27,6 @@ public class NoteUI : MonoBehaviour
     public void DisableContent()
     {
         noteContent.SetActive(false);
+        contentIsActive = false;
     }
 }

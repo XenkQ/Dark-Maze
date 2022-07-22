@@ -46,7 +46,6 @@ public class PlayerInteractions : MonoBehaviour
 
                 default:
                     cursorManager.DisableInteractionCursor();
-                    playerCamera.ReturnToDeafultZoom();
                     break;
             }
 

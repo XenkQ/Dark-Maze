@@ -8,6 +8,7 @@ public class NoteInteractions : MonoBehaviour
     private bool isfirstEKeyAction = true;
     private Note note;
     private NoteUI noteUI;
+    private FleshLight fleshLight;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class NoteInteractions : MonoBehaviour
         noteUI = GameObject.FindGameObjectWithTag("NoteUI").GetComponent<NoteUI>();
         cursorManager = GameObject.FindGameObjectWithTag("CursorManager").GetComponent<CursorManager>();
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
+        fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
     }
 
     public void InteractWithNote()
@@ -28,8 +30,9 @@ public class NoteInteractions : MonoBehaviour
         {
             noteUI.ActiveContentWithNewText(note.Text);
             GameTimeManager.PauseGame();
-            cursorManager.CanEnableInteractionCursor = false;
+            cursorManager.CanEnableInteractionCursor(false);
             cursorManager.DisableInteractionCursor();
+            fleshLight.PauseFleshLightActions();
             playerCamera.DisableCameraRotationScript();
             isfirstEKeyAction = false;
         }
@@ -37,7 +40,8 @@ public class NoteInteractions : MonoBehaviour
         {
             noteUI.DisableContent();
             GameTimeManager.UnpauseGame();
-            cursorManager.CanEnableInteractionCursor = true;
+            cursorManager.CanEnableInteractionCursor(true);
+            fleshLight.UnpauseFleshLightActions();
             playerCamera.EnableCameraRotationScript();
             isfirstEKeyAction = true;
         }

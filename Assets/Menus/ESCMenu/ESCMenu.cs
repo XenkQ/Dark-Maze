@@ -20,6 +20,7 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
     [SerializeField] private TextInteractionsEffects textInteractionsEffects;
     [SerializeField] private InLvlPostProcessingManager inLvlPostProcessingManager;
     [SerializeField] private PlayerInteractions playerInteractions;
+    [SerializeField] private NoteUI noteUI;
     private FleshLight fleshLight;
     private PlayerCamera playerCamera;
 
@@ -32,29 +33,21 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
 
     private void Update()
     {
-        if(canBeUsed)
+        if (canBeUsed)
         {
-            ActiveOrDisableOnEscKey();
+            PerformActionsOnEscKey();
         }
     }
 
-    private void ActiveOrDisableOnEscKey()
+    private void PerformActionsOnEscKey()
     {
         if (CanActiveESCMenu())
         {
-            GameTimeManager.PauseGame();
-            playerInteractions.StopInteractions();
-            fleshLight.PauseFleshLightActions();
             ESCMenuContentActivationProcess();
-            CursorManager.UnlockCursor();
         }
         else if (CanDisableESCMenu())
         {
-            GameTimeManager.UnpauseGame();
-            playerInteractions.ResumeInteractions();
-            fleshLight.UnpauseFleshLightActions();
             DisableESCMenuContentProcess();
-            CursorManager.LockCursor();
         }
     }
 
@@ -65,9 +58,26 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
 
     private void ESCMenuContentActivationProcess()
     {
-        inLvlPostProcessingManager.ActiveDepthOfFieldEffect(true);
+        PrepareGameForContentActivation();
+        playerInteractions.StopInteractions();
+        ActiveContent();
+        CursorManager.UnlockCursor();
+    }
+
+    private void PrepareGameForContentActivation()
+    {
+        if (noteUI.contentIsActive == false)
+        {
+            GameTimeManager.PauseGame();
+            playerCamera.DisableCameraRotationScript();
+            fleshLight.PauseFleshLightActions();
+            inLvlPostProcessingManager.ActiveDepthOfFieldEffect(true);
+        }
+    }
+
+    private void ActiveContent()
+    {
         content.SetActive(true);
-        playerCamera.DisableCameraRotationScript();
     }
 
     private bool CanDisableESCMenu()
@@ -78,9 +88,21 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
     private void DisableESCMenuContentProcess()
     {
         ResetAllTextColors();
-        inLvlPostProcessingManager.ActiveDepthOfFieldEffect(false);
-        content.SetActive(false);
-        playerCamera.EnableCameraRotationScript();
+        PrepareGameForContentDisable();
+        DisableESCMenu();
+        playerInteractions.ResumeInteractions();
+        CursorManager.LockCursor();
+    }
+
+    private void PrepareGameForContentDisable()
+    {
+        if (noteUI.contentIsActive == false)
+        {
+            GameTimeManager.UnpauseGame();
+            fleshLight.UnpauseFleshLightActions();
+            playerCamera.EnableCameraRotationScript();
+            inLvlPostProcessingManager.ActiveDepthOfFieldEffect(false);
+        }
     }
 
     private void DisableESCMenu()
@@ -90,7 +112,7 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
 
     public static void BlockFunctionality()
     {
-        if(canBeUsed == true)
+        if (canBeUsed == true)
         {
             canBeUsed = false;
         }
@@ -98,7 +120,7 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
 
     public static void UnblockFunctionality()
     {
-        if(canBeUsed == false)
+        if (canBeUsed == false)
         {
             canBeUsed = true;
         }

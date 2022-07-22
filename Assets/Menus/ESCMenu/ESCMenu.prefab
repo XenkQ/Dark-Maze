@@ -375,6 +375,7 @@ MonoBehaviour:
   textInteractionsEffects: {fileID: 2023227469947544089}
   inLvlPostProcessingManager: {fileID: 0}
   playerInteractions: {fileID: 0}
+  noteUI: {fileID: 0}
 --- !u!114 &2023227469947544089
 MonoBehaviour:
   m_ObjectHideFlags: 0
