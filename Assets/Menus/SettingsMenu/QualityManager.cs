@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,7 +5,7 @@ public class QualityManager : MonoBehaviour
 {
     [Header("Quality")]
     [SerializeField] private TMP_Dropdown qualityDropDown;
-    public static int qualityIndex;
+    public static int qualityIndex = 1;
 
     private void Awake()
     {
@@ -26,9 +24,9 @@ public class QualityManager : MonoBehaviour
         SetQuality(qualityIndex);
     }
 
-    public void SetQuality(int _qualityIndex)
+    public void SetQuality(int qualityLevel)
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
-        qualityIndex = _qualityIndex;
+        QualitySettings.SetQualityLevel(qualityLevel);
+        qualityIndex = qualityLevel;
     }
 }
