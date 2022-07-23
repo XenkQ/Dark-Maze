@@ -554,14 +554,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b930df8267fa84fbe66774f717d05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deafultColor:
+  defaultColor:
     serializedVersion: 2
-    rgba: 4291940817
+    rgba: 4289111718
   interactionColor:
     serializedVersion: 2
     rgba: 4279966691
-  deafultTextSize: 110
+  defaultTextSize: 110
   textSizeAfterInteraction: 113
+  allTextToRestart:
+  - {fileID: 6364180029916927485}
+  - {fileID: 6930373359611890757}
 --- !u!1 &6930373359611890779
 GameObject:
   m_ObjectHideFlags: 0

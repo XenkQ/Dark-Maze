@@ -1,31 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
+[RequireComponent(typeof(UITextInteractionsEffects))]
 public class ESCMenu : MonoBehaviour, ICanExitGame
 {
     private static bool canBeUsed = true;
-
-    [Header("Text")]
-    [SerializeField] private TextMeshProUGUI toSettingsText;
-    [SerializeField] private TextMeshProUGUI exitText;
 
     [Header("Contents of menus")]
     [SerializeField] private GameObject settingsMenuContent;
     [SerializeField] private GameObject content;
 
     [Header("Other Scripts")]
-    [SerializeField] private TextInteractionsEffects textInteractionsEffects;
     [SerializeField] private InLvlPostProcessingManager inLvlPostProcessingManager;
     [SerializeField] private PlayerInteractions playerInteractions;
     [SerializeField] private NoteUI noteUI;
     private FleshLight fleshLight;
     private PlayerCamera playerCamera;
+    private UITextInteractionsEffects textInteractionsEffects;
 
     private void Awake()
     {
+        textInteractionsEffects = GetComponent<UITextInteractionsEffects>();
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
         fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
         UnblockFunctionality();
@@ -87,8 +81,8 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
 
     private void DisableESCMenuContentProcess()
     {
-        ResetAllTextColors();
         PrepareGameForContentDisable();
+        textInteractionsEffects.ResetAllTextColors();
         DisableESCMenu();
         playerInteractions.ResumeInteractions();
         CursorManager.LockCursor();
@@ -124,18 +118,6 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
         {
             canBeUsed = true;
         }
-    }
-
-    public void OnSettingsButtonClick()
-    {
-        ResetAllTextColors();
-        settingsMenuContent.SetActive(true);
-        DisableESCMenu();
-    }
-
-    private void ResetAllTextColors()
-    {
-        textInteractionsEffects.ResetAllTextColors(new TextMeshProUGUI[] { toSettingsText, exitText }, textInteractionsEffects.DeafultColor);
     }
 
     public void Exit()

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] [Range(1, 25)] private int enemyRadius;
     public int EnemyRadius { get { return enemyRadius; } }
     [SerializeField] private EnemyState enemyState;
+    private EnemyState lastEnemyState;
     [SerializeField] private float searchingTime;
 
     [Header("Other Scripts")]
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         enemyState = EnemyState.Normal;
+        lastEnemyState = enemyState;
     }
 
     private void FixedUpdate()
@@ -53,21 +55,20 @@ public class Enemy : MonoBehaviour
     {
         if (CanChasePlayer())
         {
+            animationsMenager.StopSearchingAnimation();
+            lastEnemyState = enemyState;
             enemyState = EnemyState.Chasing;
         }
         if (CanStopChasingPlayer())
         {
+            lastEnemyState = enemyState;
             enemyState = EnemyState.Normal;
         }
         if (CanSearchForPlayer())
         {
+            lastEnemyState = enemyState;
             enemyState = EnemyState.Searching;
         }
-        //if (CanStopSearchingPlayer())
-        //{
-        //    StopCoroutine(LookAroundProcess());
-        //    enemyState = EnemyState.Chasing;
-        //}
     }
 
     private bool CanChasePlayer()
@@ -83,11 +84,6 @@ public class Enemy : MonoBehaviour
     private bool CanSearchForPlayer()
     {
         return PlayerInRadius() && player.transform.tag == "UnkillablePlayer" && enemyState == EnemyState.Chasing;
-    }
-
-    private bool CanStopSearchingPlayer()
-    {
-        return PlayerInRadius() && player.transform.tag == "Player" && enemyState == EnemyState.Searching;
     }
 
     private bool PlayerInRadius()
@@ -108,6 +104,10 @@ public class Enemy : MonoBehaviour
                 break;
 
             case EnemyState.Chasing:
+                if(lastEnemyState == EnemyState.Searching)
+                {
+                    StopLookingAround();
+                }
                 enemyMovement.RotateAtDirection(player.transform.position);
                 ChasePlayer();
                 break;

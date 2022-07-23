@@ -452,9 +452,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886594839526271654}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: ToOverridingContent
+      - m_Target: {fileID: 886594839526271648}
+        m_TargetAssemblyTypeName: SettingSaveManager, Assembly-CSharp
+        m_MethodName: SaveSettingsData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -464,10 +464,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 886594839526271648}
-        m_TargetAssemblyTypeName: SettingSaveManager, Assembly-CSharp
-        m_MethodName: SaveSettingsData
+      - m_Target: {fileID: 7816557153139043599}
+        m_TargetAssemblyTypeName: UITextInteractionsEffects, Assembly-CSharp
+        m_MethodName: ResetAllTextColors
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 886594839440006249}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1439,7 +1463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &886594839440006230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1593,7 +1617,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 886594839526271673}
-  - component: {fileID: 886594839526271654}
   - component: {fileID: 7816557153139043599}
   - component: {fileID: 886594839526271648}
   - component: {fileID: 886594839526271653}
@@ -1607,7 +1630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &886594839526271673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1628,23 +1651,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &886594839526271654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886594839526271672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbafcf4490e52b45a2ed39a036391af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backButtonText: {fileID: 886594840185055641}
-  settingsMenuContent: {fileID: 886594839440006249}
-  overridingContent: {fileID: 0}
-  settingSaveMenager: {fileID: 886594839526271648}
-  textInteractionsEffects: {fileID: 7816557153139043599}
 --- !u!114 &7816557153139043599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,14 +1663,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b930df8267fa84fbe66774f717d05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deafultColor:
+  defaultColor:
     serializedVersion: 2
     rgba: 4289111718
   interactionColor:
     serializedVersion: 2
     rgba: 4279966691
-  deafultTextSize: 80
+  defaultTextSize: 80
   textSizeAfterInteraction: 83
+  allTextToRestart:
+  - {fileID: 886594840185055641}
 --- !u!114 &886594839526271648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2616,8 +2624,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000038146973, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 10.9939, y: 0}
+  m_SizeDelta: {x: 21.9878, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &886594840185055622
 CanvasRenderer:
@@ -2647,7 +2655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: BACK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c0c2769df325984598b345d32b00cf2, type: 2}
   m_sharedMaterial: {fileID: -1307982060755744695, guid: 4c0c2769df325984598b345d32b00cf2, type: 2}
@@ -2656,7 +2664,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293322473
+    rgba: 4289111718
   m_fontColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
