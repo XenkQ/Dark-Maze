@@ -1,1 +1,1 @@
-# This is a horror game being developed by me on unity engine.
+# This is my first 3D horror game made in unity engine.
