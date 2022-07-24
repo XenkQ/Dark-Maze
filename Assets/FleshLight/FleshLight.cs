@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class FleshLight : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip switchOnSound;
+    [SerializeField] private AudioClip switchOffSound;
     private Light lightComponent;
     private bool isLightEnabled = true;
     private bool canUse = true;
@@ -25,7 +28,7 @@ public class FleshLight : MonoBehaviour
 
     public void UnpauseFleshLightActions()
     {
-        if(!map.IsVisible()) //NotWorking bo po wy³¹czeniu mapy latarka nie dzia³a
+        if(!map.IsVisible())
         {
             canUse = true;
         }
@@ -35,10 +38,12 @@ public class FleshLight : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && isLightEnabled == false)
         {
+            PlaySwitchOnSound();
             EnableLight();
         }
         else if (Input.GetMouseButtonDown(0) && isLightEnabled == true)
         {
+            PlaySwitchOffSound();
             DisableLight();
         }
     }
@@ -53,5 +58,15 @@ public class FleshLight : MonoBehaviour
     {
         lightComponent.enabled = true;
         isLightEnabled = true;
+    }
+
+    private void PlaySwitchOnSound()
+    {
+        audioSource.PlayOneShot(switchOnSound);
+    }
+
+    private void PlaySwitchOffSound()
+    {
+        audioSource.PlayOneShot(switchOffSound);
     }
 }

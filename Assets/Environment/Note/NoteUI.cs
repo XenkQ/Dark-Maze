@@ -5,6 +5,7 @@ public class NoteUI : MonoBehaviour
 {
     [SerializeField] private GameObject noteContent;
     [SerializeField] private TextMeshProUGUI contentText;
+    [SerializeField] private InLvlPostProcessingManager inLvlPostProcessingManager;
     public bool contentIsActive = false;
 
     public void ActiveContentWithNewText(string text)
@@ -15,6 +16,7 @@ public class NoteUI : MonoBehaviour
 
     private void ActiveContent()
     {
+        inLvlPostProcessingManager.ActiveDepthOfFieldEffect(true);
         noteContent.SetActive(true);
         contentIsActive = true;
     }
@@ -26,6 +28,7 @@ public class NoteUI : MonoBehaviour
 
     public void DisableContent()
     {
+        inLvlPostProcessingManager.ActiveDepthOfFieldEffect(false);
         noteContent.SetActive(false);
         contentIsActive = false;
     }

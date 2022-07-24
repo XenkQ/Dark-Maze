@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3286d347fcbe9d940afec102a26d6d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxInteractionRange: 3
+  maxInteractionRange: 3.2
   canInteract: 1
   cursorManager: {fileID: 0}
   playerCamera: {fileID: 3973357892085328427}
@@ -981,6 +981,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6017002468920920688}
     m_Modifications:
+    - target: {fileID: 4718356144288963259, guid: ba080906ca498604596d6d47abf88a4a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6583421247636061007, guid: ba080906ca498604596d6d47abf88a4a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1028,6 +1032,10 @@ PrefabInstance:
     - target: {fileID: 6583421247636061008, guid: ba080906ca498604596d6d47abf88a4a, type: 3}
       propertyPath: m_Name
       value: JumpScareEnemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859324919524673234, guid: ba080906ca498604596d6d47abf88a4a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba080906ca498604596d6d47abf88a4a, type: 3}

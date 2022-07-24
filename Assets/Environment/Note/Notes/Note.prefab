@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 5051124368494521257}
-  text: Make me louda
+  text: Some Text
 --- !u!114 &4613810362851073168
 MonoBehaviour:
   m_ObjectHideFlags: 0
