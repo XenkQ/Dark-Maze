@@ -4,7 +4,6 @@ public class MouseLook : MonoBehaviour
 {
     private float xRotarion = 0f;
     private Transform playerTransform;
-    [SerializeField] private Map map;
 
     private void Awake()
     {
@@ -13,10 +12,7 @@ public class MouseLook : MonoBehaviour
 
     private void Update()
     {
-        if (CanMoveCamera())
-        {
-            MoveCamera();
-        }
+        MoveCamera();
     }
 
     private void MoveCamera()
@@ -29,10 +25,5 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotarion, 0, 0);
         playerTransform.Rotate(Vector3.up * mouseX);
-    }
-
-    private bool CanMoveCamera()
-    {
-        return !map.IsVisible();
     }
 }

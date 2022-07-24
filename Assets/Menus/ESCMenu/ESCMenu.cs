@@ -16,12 +16,14 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
     private FleshLight fleshLight;
     private PlayerCamera playerCamera;
     private UITextInteractionsEffects textInteractionsEffects;
+    private Map map;
 
     private void Awake()
     {
         textInteractionsEffects = GetComponent<UITextInteractionsEffects>();
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<PlayerCamera>();
         fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
+        map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         UnblockFunctionality();
     }
 
@@ -84,7 +86,12 @@ public class ESCMenu : MonoBehaviour, ICanExitGame
         PrepareGameForContentDisable();
         textInteractionsEffects.ResetAllTextColors();
         DisableESCMenu();
-        playerInteractions.ResumeInteractions();
+
+        if(!map.IsVisible())
+        {
+            playerInteractions.ResumeInteractions();
+        }
+
         CursorManager.LockCursor();
     }
 

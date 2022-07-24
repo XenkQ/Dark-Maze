@@ -1,23 +1,19 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
 public class Map : MonoBehaviour
 {
     [Header("Map Visibility")]
     [SerializeField] private MeshRenderer mapMeshRenderer;
     [SerializeField] private MeshRenderer mapIconsMeshRenderer;
 
-    [Header("Map Ray Collision")]
-    private BoxCollider meshCollider;
-
-    [Header("Other Scripts")]
-    [SerializeField] private InLvlPostProcessingManager inLvlPostProcessingManager;
-    [SerializeField] private DrawManager drawManager;
+    private PlayerInteractions playerInteractions;
+    private NoteUI noteUI;
     private FleshLight fleshLight;
 
     private void Awake()
     {
-        meshCollider = GetComponent<BoxCollider>();
+        playerInteractions = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteractions>();
+        noteUI = GameObject.FindGameObjectWithTag("NoteUI").GetComponent<NoteUI>();
         fleshLight = GameObject.FindGameObjectWithTag("FleshLight").GetComponent<FleshLight>();
     }
 
@@ -28,20 +24,23 @@ public class Map : MonoBehaviour
 
     private void OnKeyClickMapActions()
     {
-        if (IsVisible())
+        if (CanActiveMap())
         {
-            fleshLight.UnpauseFleshLightActions();
-            inLvlPostProcessingManager.ActiveDepthOfFieldEffect(false);
-            drawManager.gameObject.SetActive(false);
-            DisableMapVisibilityWithDrawMode();
+            EnableMapRender(true);
+            fleshLight.PauseFleshLightActions();
+            playerInteractions.StopInteractions();
         }
         else
         {
-            fleshLight.PauseFleshLightActions();
-            inLvlPostProcessingManager.ActiveDepthOfFieldEffect(true);
-            drawManager.gameObject.SetActive(true);
-            EnableMapVisibilityWithDrawMode();
+            EnableMapRender(false);
+            fleshLight.UnpauseFleshLightActions();
+            playerInteractions.ResumeInteractions();
         }
+    }
+
+    private bool CanActiveMap()
+    {
+        return !IsVisible() && !noteUI.contentIsActive;
     }
 
     public bool IsVisible()
@@ -49,40 +48,9 @@ public class Map : MonoBehaviour
         return mapMeshRenderer.enabled;
     }
 
-    private void EnableMapVisibilityWithDrawMode()
-    {
-        EnableMapRender(true);
-        ActiveMapDrawMode();
-    }
-
-    private void DisableMapVisibilityWithDrawMode()
-    {
-        EnableMapRender(false);
-        DisableMapDrawMode();
-    }
-
     private void EnableMapRender(bool value)
     {
         mapMeshRenderer.enabled = value;
         mapIconsMeshRenderer.enabled = value;
-    }
-
-    private void EnableMapCollider(bool value)
-    {
-        meshCollider.enabled = value;
-    }
-
-    private void ActiveMapDrawMode()
-    {
-        EnableMapCollider(true);
-        GameTimeManager.PauseGame();
-        CursorManager.UnlockCursor();
-    }
-
-    private void DisableMapDrawMode()
-    {
-        EnableMapCollider(false);
-        GameTimeManager.UnpauseGame();
-        CursorManager.LockCursor();
     }
 }

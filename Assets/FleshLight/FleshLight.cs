@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FleshLight : MonoBehaviour
@@ -7,16 +5,17 @@ public class FleshLight : MonoBehaviour
     private Light lightComponent;
     private bool isLightEnabled = true;
     private bool canUse = true;
-    [SerializeField] private float maxDistanceToShrink = 1f;
+    private Map map;
 
     private void Awake()
     {
+        map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         lightComponent = GetComponent<Light>();
     }
 
     private void Update()
     {
-        if(canUse){ OnMouseLeftClickActions(); }
+        if (canUse) { OnMouseLeftClickActions(); }
     }
 
     public void PauseFleshLightActions()
@@ -26,16 +25,19 @@ public class FleshLight : MonoBehaviour
 
     public void UnpauseFleshLightActions()
     {
-        canUse = true;
+        if(!map.IsVisible()) //NotWorking bo po wy³¹czeniu mapy latarka nie dzia³a
+        {
+            canUse = true;
+        }
     }
 
     private void OnMouseLeftClickActions()
     {
-        if(Input.GetMouseButtonDown(0) && isLightEnabled == false)
+        if (Input.GetMouseButtonDown(0) && isLightEnabled == false)
         {
             EnableLight();
         }
-        else if(Input.GetMouseButtonDown(0) && isLightEnabled == true)
+        else if (Input.GetMouseButtonDown(0) && isLightEnabled == true)
         {
             DisableLight();
         }
