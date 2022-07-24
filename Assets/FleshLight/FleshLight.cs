@@ -6,7 +6,7 @@ public class FleshLight : MonoBehaviour
     [SerializeField] private AudioClip switchOnSound;
     [SerializeField] private AudioClip switchOffSound;
     private Light lightComponent;
-    private bool isLightEnabled = true;
+    private bool isLightEnabled = false;
     private bool canUse = true;
     private Map map;
 
