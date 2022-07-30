@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class ButtonsSounds : MonoBehaviour
 {
@@ -9,17 +8,11 @@ public class ButtonsSounds : MonoBehaviour
 
     public void OnButtonHoverSound()
     {
-        Debug.Log(audioSource.isPlaying);
-        if(!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(buttonHoverSound);
-        }
+        audioSource.PlayOneShot(buttonHoverSound);
     }
 
     public void OnButtonClickSound()
     {
-
         audioSource.PlayOneShot(buttonClickSound);
-
     }
 }

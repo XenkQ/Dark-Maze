@@ -759,8 +759,8 @@ Transform:
   - {fileID: 1089183442}
   - {fileID: 995336626}
   - {fileID: 1868336447}
-  - {fileID: 1404626258}
   - {fileID: 577322174}
+  - {fileID: 1404626258}
   m_Father: {fileID: 1193761873}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2329,7 +2329,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6787181923704338647, guid: 8d0345698884e9b4ca13e148f3ff7283, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6787181923704338647, guid: 8d0345698884e9b4ca13e148f3ff7283, type: 3}
       propertyPath: m_LocalScale.x
@@ -7000,7 +7000,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6787181923704338647, guid: 468bd764b4c3b8e468e939228c00eb43, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6787181923704338647, guid: 468bd764b4c3b8e468e939228c00eb43, type: 3}
       propertyPath: m_LocalScale.x
@@ -7126,7 +7126,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294942111
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -7987,15 +7987,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 539612767, guid: 7c55d34922a39e845aa536886b132120, type: 3}
       propertyPath: m_Color.b
-      value: 0.57254905
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 539612767, guid: 7c55d34922a39e845aa536886b132120, type: 3}
       propertyPath: m_Color.g
-      value: 0.78039217
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 539612767, guid: 7c55d34922a39e845aa536886b132120, type: 3}
       propertyPath: m_Color.r
-      value: 0.8980392
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1190839802087532274, guid: 7c55d34922a39e845aa536886b132120, type: 3}
       propertyPath: m_IsActive
@@ -8787,10 +8787,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7901959238632668417, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7901959238632668419, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8839,10 +8835,6 @@ PrefabInstance:
       propertyPath: cursorManager
       value: 
       objectReference: {fileID: 908722296}
-    - target: {fileID: 7901959238958410431, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
-      propertyPath: field of view
-      value: 61
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54912a7a8cbe8824886eaa5a0c1d94ef, type: 3}
 --- !u!1 &8313733188459739589
